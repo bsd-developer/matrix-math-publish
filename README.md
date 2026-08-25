@@ -24,6 +24,8 @@ verification are closed inside a proof assistant. The stronger 2.371177
 is a level-four floating-point claim without machine-checked
 verification; we make no claim against it.
 
+Pre-Print: https://zenodo.org/records/22101463
+
 ## Runbook
 
 Prerequisites: [rustup](https://rustup.rs) (the pinned toolchain in
