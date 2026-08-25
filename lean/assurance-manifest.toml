@@ -1,0 +1,332 @@
+# Reviewed compiled-theorem assurance manifest (spec §4.6).
+#
+# Regenerate with `just assurance-update`. `just assurance` is read-only
+# and rejects any drift from this record.
+#
+# Statement digests come from the pinned Lean pretty-printer with explicit
+# universes, explicit arguments, and fully qualified names, so they change
+# intentionally with a Lean upgrade.
+
+schema = "matrix-math-assurance-manifest/1"
+spec_version = "2.1.0"
+status = "active"
+lean_source_closure = "73c8e3f550822d9360ed127c33e3bdba73b1a77e224d022b658590f37d01635c"
+
+[[claims]]
+id = "A21-FEASIBLE"
+declaration = "MatrixMath.Certificate.TrackACert.check_sound"
+kind = "theorem"
+statement_sha256 = "5fa5a1353797131feedca3cf125f7ffabce59b8c7cd0f0a7a049b9b11c0c5621"
+axioms = ["Classical.choice", "Quot.sound", "propext"]
+axiom_allowlist = []
+evidence = ["tests/vectors/omega-l2-hand.json"]
+residual_assumptions = ["Demonstrated at ℓ* = 2 and ℓ* = 3. The checker covers §0.2's whole range; ℓ* = 4 has not been run, and §16 fixes the fallback if it exceeds H64."]
+status = "active"
+
+[[claims]]
+id = "A21-DIRECTED"
+declaration = "MatrixMath.Certificate.directed_implies_real"
+kind = "theorem"
+statement_sha256 = "c9ad3b03a9845b9502c7fd1595cd336ee27c32bf67534fe648177c9be92fe546"
+axioms = ["Classical.choice", "Quot.sound", "propext"]
+axiom_allowlist = []
+evidence = ["crates/mm-exact/tests/omega_fixtures.rs::the_hand_fixture_evaluates_and_satisfies_a21"]
+residual_assumptions = []
+status = "active"
+
+[[claims]]
+id = "A21-SIGN"
+declaration = "MatrixMath.Certificate.directed_needs_nonneg_omega"
+kind = "theorem"
+statement_sha256 = "03a24335700c21ee266bbe372575b1981479b20c380505bdceb22c0a3e36ef1a"
+axioms = ["Classical.choice", "Quot.sound", "propext"]
+axiom_allowlist = []
+evidence = ["crates/mm-exact/tests/appendix_a.rs::a_negative_omega_is_rejected_before_multiplication"]
+residual_assumptions = []
+status = "active"
+
+[[claims]]
+id = "B-SOUND-3"
+declaration = "MatrixMath.Certificate.validate_computes_matmul"
+kind = "theorem"
+statement_sha256 = "3d86edc3a442575597bb59f7c5bee810a719a7270401a956bbce0a2ccb787068"
+axioms = ["Classical.choice", "Quot.sound", "propext"]
+axiom_allowlist = []
+evidence = ["tests/vectors/strassen-z.json"]
+residual_assumptions = []
+status = "active"
+
+[[claims]]
+id = "B-SOUND-2"
+declaration = "MatrixMath.Certificate.validate_rank_le"
+kind = "theorem"
+statement_sha256 = "7c1791285a9426881c51591b1b7924d136fbc03d1f40a88ddfe66890dfe9840b"
+axioms = ["Quot.sound", "propext"]
+axiom_allowlist = []
+evidence = ["tests/vectors/alphatensor-f2-4x4x4.json"]
+residual_assumptions = []
+status = "active"
+
+[[claims]]
+id = "B-SOUND-1"
+declaration = "MatrixMath.Certificate.validate_sound"
+kind = "theorem"
+statement_sha256 = "7d7a0aad66b32a5a209ae57a76f2a198de22060b0ea08cb80cbf1ace64cd0c64"
+axioms = ["Quot.sound", "propext"]
+axiom_allowlist = []
+evidence = ["schemas/fixtures/invalid/reconstruction_mismatch.json"]
+residual_assumptions = []
+status = "active"
+
+[[claims]]
+id = "A-BOUND-2"
+declaration = "MatrixMath.Numeric.Enclosure.divPos"
+kind = "def"
+statement_sha256 = "a6081382c540ffb986287a17a86462bdda1f5ede2630e5b322d98af8b8e3e0dc"
+axioms = ["Classical.choice", "Quot.sound", "propext"]
+axiom_allowlist = []
+evidence = ["crates/mm-rat/tests/numerics.rs::nonnegative_scaling_rejects_a_signed_multiplier"]
+residual_assumptions = []
+status = "active"
+
+[[claims]]
+id = "A-BOUND-1"
+declaration = "MatrixMath.Numeric.Enclosure.mulGeneral"
+kind = "def"
+statement_sha256 = "e4e6cb43bb07108c6e5b1d48eb8f7b6712274de7b0f920ea17efcefac2e2cbd0"
+axioms = ["Classical.choice", "Quot.sound", "propext"]
+axiom_allowlist = []
+evidence = ["crates/mm-rat/tests/numerics.rs::interval_multiplication_is_sign_aware"]
+residual_assumptions = []
+status = "active"
+
+[[claims]]
+id = "A-ENT-1"
+declaration = "MatrixMath.Numeric.entropyLower_le"
+kind = "theorem"
+statement_sha256 = "cf645d702b11473440d5eeb5363a739eeb8fedbc40209f3b9c548ed594172045"
+axioms = ["Classical.choice", "Quot.sound", "propext"]
+axiom_allowlist = []
+evidence = ["crates/mm-rat/tests/numerics.rs::entropy_of_uniform_power_of_two_is_exact"]
+residual_assumptions = []
+status = "active"
+
+[[claims]]
+id = "A22"
+declaration = "MatrixMath.Numeric.entropy_le_of_close"
+kind = "theorem"
+statement_sha256 = "6ec9164d640960345425948f02447a1e7176e664aae448fd712bd932da8d8cb7"
+axioms = ["Classical.choice", "Quot.sound", "propext"]
+axiom_allowlist = []
+evidence = ["crates/mm-rat/tests/numerics.rs::max_entropy_upper_adds_two_epsilon_and_rejects_negative_epsilon"]
+residual_assumptions = []
+status = "active"
+
+[[claims]]
+id = "A-ENT-2"
+declaration = "MatrixMath.Numeric.le_entropyUpper"
+kind = "theorem"
+statement_sha256 = "7e53b469e7702d46b10b866f3a641e736205d70d7f7e0ec99faa62cbe36f3b2e"
+axioms = ["Classical.choice", "Quot.sound", "propext"]
+axiom_allowlist = []
+evidence = ["crates/mm-rat/tests/numerics.rs::entropy_of_the_uniform_triple_matches_the_reference"]
+residual_assumptions = []
+status = "active"
+
+[[claims]]
+id = "A-LOG-2"
+declaration = "MatrixMath.Numeric.le_log2Upper"
+kind = "theorem"
+statement_sha256 = "583cde3e5bbb3b680b205f3fb1fdb27cee75ca4091e2aa58022d71b1d68b095d"
+axioms = ["Classical.choice", "Quot.sound", "propext"]
+axiom_allowlist = []
+evidence = ["crates/mm-rat/tests/numerics.rs::log2_encloses_independent_reference_values"]
+residual_assumptions = []
+status = "active"
+
+[[claims]]
+id = "A-LOG-4"
+declaration = "MatrixMath.Numeric.le_logPartial_add_tail"
+kind = "theorem"
+statement_sha256 = "10818b58662f1047e7479ee373b87ff5439491419828aa9a362819033e04107d"
+axioms = ["Classical.choice", "Quot.sound", "propext"]
+axiom_allowlist = []
+evidence = ["crates/mm-rat/tests/numerics.rs::log2_encloses_independent_reference_values"]
+residual_assumptions = []
+status = "active"
+
+[[claims]]
+id = "A-LOG-1"
+declaration = "MatrixMath.Numeric.log2Lower_le"
+kind = "theorem"
+statement_sha256 = "0f6216d206c6dbd8b4b71543cf2615cece6568caa6c124f63a5aa263147f95e3"
+axioms = ["Classical.choice", "Quot.sound", "propext"]
+axiom_allowlist = []
+evidence = ["crates/mm-rat/tests/numerics.rs::log2_encloses_independent_reference_values"]
+residual_assumptions = []
+status = "active"
+
+[[claims]]
+id = "A-LOG-3"
+declaration = "MatrixMath.Numeric.logPartial_le"
+kind = "theorem"
+statement_sha256 = "76ea8ba5d4eb9d430327cdf28f7b7ce1d2602c6fadec1f00f5b5be94e35d451b"
+axioms = ["Classical.choice", "Quot.sound", "propext"]
+axiom_allowlist = []
+evidence = ["crates/mm-rat/tests/numerics.rs::ln2_and_its_reciprocal_enclose_reference_values"]
+residual_assumptions = []
+status = "active"
+
+[[claims]]
+id = "A-LOG-5"
+declaration = "MatrixMath.Numeric.seriesLength_tail_le"
+kind = "theorem"
+statement_sha256 = "56ac050bdfab071e817a234ed47c09f2dd6a0c9c41cabea2716acd0f5fb54186"
+axioms = ["Classical.choice", "Quot.sound", "propext"]
+axiom_allowlist = []
+evidence = ["tests/vectors/series-length.json"]
+residual_assumptions = []
+status = "active"
+
+[[claims]]
+id = "A-ENT-3"
+declaration = "MatrixMath.Numeric.sum_mul_logb_le"
+kind = "theorem"
+statement_sha256 = "4ac20995a7fb1c9aa19bb4cf75f2f1f58547a4ccd884071d6a7cd1d10a61b40b"
+axioms = ["Classical.choice", "Quot.sound", "propext"]
+axiom_allowlist = []
+evidence = ["crates/mm-rat/tests/numerics.rs::entropy_of_a_point_mass_is_zero"]
+residual_assumptions = []
+status = "active"
+
+[[claims]]
+id = "BYTES-RANK"
+declaration = "MatrixMath.Schema.checkBytes_rank_le"
+kind = "theorem"
+statement_sha256 = "c03ec9e0d64d4907ad703886a3b00616bb38d8656f987147c5d56a449bd08df1"
+axioms = ["Classical.choice", "Quot.sound", "propext"]
+axiom_allowlist = []
+evidence = ["lean/scripts/DecodeCheck.lean", "tests/vectors/alphatensor-f2-4x4x4.json"]
+residual_assumptions = []
+status = "active"
+
+[[claims]]
+id = "BYTES-SOUND"
+declaration = "MatrixMath.Schema.checkBytes_sound"
+kind = "theorem"
+statement_sha256 = "9d8647d68f6cd05832b13998c46ccb10068cd5301cd2e3437b242d1b8656f2b3"
+axioms = ["Classical.choice", "Quot.sound", "propext"]
+axiom_allowlist = []
+evidence = ["lean/scripts/DecodeCheck.lean", "tests/vectors/alphatensor-f2-4x4x4.json"]
+residual_assumptions = []
+status = "active"
+
+[[claims]]
+id = "OMEGA-BYTES"
+declaration = "MatrixMath.Schema.checkOmegaBytes_sound"
+kind = "theorem"
+statement_sha256 = "61dcb16075ad05846627a4e75324a79225d86cf8d4d2f0b1031db35cdd6bd78a"
+axioms = ["Classical.choice", "Quot.sound", "propext"]
+axiom_allowlist = []
+evidence = ["lean/scripts/DecodeCheck.lean", "tests/vectors/omega-l2-optimized.json"]
+residual_assumptions = ["Demonstrated at ℓ* = 2 and ℓ* = 3. The decoder accepts §0.2's whole range; ℓ* = 4 has not been run, and §16 fixes the fallback if it exceeds H64."]
+status = "active"
+
+[[claims]]
+id = "A21-OMEGA"
+declaration = "MatrixMath.Schema.omega_le_of_acceptsOmega"
+kind = "theorem"
+statement_sha256 = "34fb26d30fa370a150e459b22e4e51accf8de5e3d77b58f581d547451b5ace23"
+axioms = ["Classical.choice", "MatrixMath.AX1_combination_loss", "Quot.sound", "propext"]
+axiom_allowlist = ["MatrixMath.AX1_combination_loss"]
+evidence = ["tests/vectors/omega-l2-optimized.json"]
+residual_assumptions = ["Demonstrated at ℓ* = 2 and ℓ* = 3. The checker covers §0.2's whole range; ℓ* = 4 has not been run, and §16 fixes the fallback if it exceeds H64."]
+status = "experimental"
+
+[[claims]]
+id = "A21-OMEGA-DIGEST"
+declaration = "MatrixMath.Schema.omega_le_of_acceptsOmegaDigest"
+kind = "theorem"
+statement_sha256 = "ec10f375a85b642514b2168524f3c010d97590565cea7e493affe7d126f43ccb"
+axioms = ["Classical.choice", "MatrixMath.AX1_combination_loss", "Quot.sound", "propext"]
+axiom_allowlist = ["MatrixMath.AX1_combination_loss"]
+evidence = ["tests/vectors/omega-l2-optimized.json"]
+residual_assumptions = ["Extends A21-OMEGA with the §6.3 artifact identity folded into the same single native evaluation: generated modules bind their byte literal to the published digest inside the theorem. Same residuals as A21-OMEGA."]
+status = "experimental"
+
+[[claims]]
+id = "DOMAIN-3"
+declaration = "MatrixMath.Spec.NodePath.distinct_paths_same_last"
+kind = "theorem"
+statement_sha256 = "87f9170cdf7f99c3845aab4dc78fab2bb5d0f9f7665f4db7ae71c25740f2218d"
+axioms = ["Quot.sound", "propext"]
+axiom_allowlist = []
+evidence = ["crates/mm-core/tests/domains.rs::node_paths_distinguish_identical_level_shape_region"]
+residual_assumptions = []
+status = "active"
+
+[[claims]]
+id = "DOMAIN-1"
+declaration = "MatrixMath.Spec.Region.permute_injective"
+kind = "theorem"
+statement_sha256 = "06f2ef9ae8d7b383548dd708858b80b5851bbb90479139a4fd6df960bf0c4721"
+axioms = ["propext"]
+axiom_allowlist = []
+evidence = ["crates/mm-core/tests/domains.rs::region_permutation_table_is_normative"]
+residual_assumptions = []
+status = "active"
+
+[[claims]]
+id = "DOMAIN-2"
+declaration = "MatrixMath.Spec.Region.permute_surjective"
+kind = "theorem"
+statement_sha256 = "17b07c96358180425a4a2e45aca45ef3ccd5757c1156eeffd28fd8377905368c"
+axioms = []
+axiom_allowlist = []
+evidence = ["crates/mm-core/tests/domains.rs::region_permutation_is_a_bijection_with_exact_inverse"]
+residual_assumptions = []
+status = "active"
+
+[[claims]]
+id = "A22-BLOCK"
+declaration = "MatrixMath.Spec.hMaxOf_le_of_block"
+kind = "theorem"
+statement_sha256 = "53bda7ec95de4d6bbe0b74cf7622c7e887bf1c6a9afb692a27bde63b989b0f53"
+axioms = ["Classical.choice", "Quot.sound", "propext"]
+axiom_allowlist = []
+evidence = ["crates/mm-exact/tests/omega_fixtures.rs::the_hand_fixture_evaluates_and_satisfies_a21"]
+residual_assumptions = []
+status = "active"
+
+[[claims]]
+id = "B-ALGO-1"
+declaration = "MatrixMath.Spec.reconstructs_bilinear"
+kind = "theorem"
+statement_sha256 = "a54d573dfcd22bb2d87425748451e224855bdaaeef9f4384a4eed7e99b126f0e"
+axioms = ["Classical.choice", "Quot.sound", "propext"]
+axiom_allowlist = []
+evidence = ["tests/vectors/strassen-z.json", "tests/vectors/naive-2x3x4-z.json"]
+residual_assumptions = []
+status = "active"
+
+[[claims]]
+id = "B-TENSOR-2"
+declaration = "MatrixMath.Spec.targetCoeff_as_indicators"
+kind = "theorem"
+statement_sha256 = "10ace394e24c1d340cf3dcdebc830be309617d3813322cd00a6c2032f2d3a8ae"
+axioms = ["Classical.choice", "Quot.sound", "propext"]
+axiom_allowlist = []
+evidence = ["crates/mm-tensor/tests/properties.rs::target_support_matches_the_entrywise_definition"]
+residual_assumptions = []
+status = "active"
+
+[[claims]]
+id = "B-TENSOR-1"
+declaration = "MatrixMath.Spec.targetCoeff_support"
+kind = "theorem"
+statement_sha256 = "c5f0ad9d311d077b2791a6554d6adddc81b0b0330128809108472a41179ddfb3"
+axioms = ["Classical.choice", "Quot.sound", "propext"]
+axiom_allowlist = []
+evidence = ["schemas/fixtures/valid", "tests/vectors/naive-2x2x2-z.json"]
+residual_assumptions = []
+status = "active"

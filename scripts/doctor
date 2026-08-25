@@ -1,0 +1,85 @@
+#!/bin/sh
+set -eu
+
+root=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
+cd "$root"
+failed=0
+
+check_command() {
+  name=$1
+  if command -v "$name" >/dev/null 2>&1; then
+    printf '%-10s %s\n' "$name" "$("$name" --version 2>/dev/null | head -n 1)"
+  else
+    printf '%-10s %s\n' "$name" "MISSING"
+    failed=1
+  fi
+}
+
+check_command cargo
+check_command rustc
+check_command python3
+check_command uv
+check_command lean
+check_command lake
+check_command just
+check_command elan
+
+rust_version=$(rustc --version 2>/dev/null | awk '{print $2}' || true)
+if [ "$rust_version" != "1.94.0" ]; then
+  echo "rustc: expected 1.94.0, found ${rust_version:-unknown}"
+  failed=1
+fi
+
+python_version=$(python3 -c 'import platform; print(platform.python_version())' 2>/dev/null || true)
+if [ "$python_version" != "3.12.11" ]; then
+  echo "python3: expected 3.12.11, found ${python_version:-unknown}"
+  failed=1
+fi
+
+# The optimizer's pins (§17.4, ADR 0009). These are untrusted producer
+# dependencies, so a mismatch is a reproducibility problem rather than a
+# soundness one, and it is still reported rather than ignored.
+
+if command -v uv >/dev/null 2>&1 && ! uv help lock >/dev/null 2>&1; then
+  echo "uv: installed version does not support the required lock command"
+  failed=1
+fi
+
+lean_version=$(cd lean && lean --version 2>/dev/null | sed -n 's/^Lean (version \([^,]*\),.*/\1/p' || true)
+if [ "$lean_version" != "4.33.0" ]; then
+  echo "lean: expected 4.33.0, found ${lean_version:-unknown}"
+  failed=1
+fi
+
+lake_version=$(lake --version 2>/dev/null | sed -n 's/^Lake version \([^ ]*\).*/\1/p' || true)
+case "$lake_version" in
+  5.0.0*) ;;
+  *) echo "lake: expected 5.0.0, found ${lake_version:-unknown}"; failed=1 ;;
+esac
+
+just_version=$(just --version 2>/dev/null | awk '{print $2}' || true)
+if [ "$just_version" != "1.46.0" ]; then
+  echo "just: expected 1.46.0, found ${just_version:-unknown}"
+  failed=1
+fi
+
+elan_version=$(elan --version 2>/dev/null | awk '{print $2}' || true)
+if [ "$elan_version" != "4.1.2" ]; then
+  echo "elan: expected 4.1.2, found ${elan_version:-unknown}"
+  failed=1
+fi
+
+uv_version=$(uv --version 2>/dev/null | awk '{print $2}' || true)
+if [ "$uv_version" != "0.9.15" ]; then
+  echo "uv: expected 0.9.15, found ${uv_version:-unknown}"
+  failed=1
+fi
+
+
+
+if [ "$failed" -ne 0 ]; then
+  echo "doctor: prerequisites or locked sources need attention"
+  exit 1
+fi
+
+echo "doctor: OK"

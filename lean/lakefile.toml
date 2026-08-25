@@ -1,0 +1,20 @@
+name = "matrix_math"
+version = "0.1.0"
+defaultTargets = ["MatrixMath"]
+
+# Mathlib supplies the real-analysis foundation required by Appendix A.11 (A22),
+# §7.3 proved logarithm bounds, and §7.4 entropy bounds. It is pinned by exact
+# revision in lake-manifest.json; see docs/adr/0001-language-and-runtime.md.
+[[require]]
+name = "mathlib"
+scope = "leanprover-community"
+rev = "v4.33.0"
+
+[[lean_lib]]
+name = "MatrixMath"
+
+# The assurance audit is run as an interpreted script via
+# `lake env lean --run MatrixMath/AssuranceAudit.lean`, not as a `lean_exe`.
+# Linking an executable would require compiling all of Mathlib to native object
+# files, which the olean cache does not provide and which buys nothing: the
+# audit queries the compiled environment either way (§4.6).
