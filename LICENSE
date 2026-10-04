@@ -1,0 +1,15 @@
+# Licences
+
+Original software and Lean source in this repository are available under either
+the MIT License or the Apache License, Version 2.0, at your option. See
+[LICENSE-MIT](LICENSE-MIT) and [LICENSE-APACHE](LICENSE-APACHE).
+
+The papers, original figures, aggregate research data and certificate data are
+licensed under [Creative Commons Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/).
+Attribute these materials to **BSD (bsd-developer)** and cite the corresponding
+paper and result version. The full legal terms are at
+<https://creativecommons.org/licenses/by/4.0/legalcode>.
+
+Third-party software and quoted or reproduced material retain their own licences
+and notices. These grants do not relicense third-party dependencies or cited
+works. No warranty is provided; see the applicable licence terms.

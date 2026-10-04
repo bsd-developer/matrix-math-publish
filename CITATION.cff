@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "Please cite this paper and identify the exact certified result version."
+type: article
+title: "Improving the matrix multiplication exponent with a MacBook and a proof assistant"
+authors:
+  - name: "BSD"
+    email: "bsd.developer@proton.me"
+version: "l4-2026-10-04-search043"
+url: "https://github.com/bsd-developer/matrix-math-publish"
+repository-code: "https://github.com/bsd-developer/matrix-math-publish"
+license: CC-BY-4.0
+keywords:
+  - matrix multiplication
+  - formal verification
+  - Lean
+  - computer-assisted proof
+  - optimization
+abstract: >-
+  An exact certificate establishes the rational-field matrix multiplication
+  exponent bound omega_Q <= 43740354192942056903/18446744073709551616
+  under profile CN. The trust boundary includes native evaluation,
+  Classical.choice, propext, Quot.sound, MatrixMath.AX1_combination_loss,
+  and the relevant Lean compiler/runtime/GMP components.
+# The version DOI and actual release date will be added when assigned.

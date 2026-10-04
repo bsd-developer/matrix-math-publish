@@ -1,0 +1,2 @@
+# Large local transport payloads; deliberately not ordinary Git objects.
+/payloads/

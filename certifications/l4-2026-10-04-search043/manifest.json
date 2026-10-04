@@ -17,10 +17,10 @@
       "sha256": "6b0dd4b27895c3dd739818e26c83c5333b0b549a12e8476a2451ea44cb8d4478"
     },
     {
-      "bytes": 2566,
+      "bytes": 2978,
       "origin": "package-document-or-build-wrapper",
       "path": "README.md",
-      "sha256": "316380220b04ac6f0e9a7b1e482f7711f94ab3e30f153af046219fc4e0b468d1"
+      "sha256": "d3ba9d43b6c366f80d9e289ebc76c73752cebdb9eaa7af77760871881a86350a"
     },
     {
       "bytes": 3766,
@@ -65,10 +65,10 @@
       "sha256": "9d39599fa49ebb2971bc4abe0bf1e83696f70a4d0fbf3459f98905afff7f5585"
     },
     {
-      "bytes": 7011,
+      "bytes": 7416,
       "origin": "package-document-or-build-wrapper",
       "path": "verification-runbook.md",
-      "sha256": "4ebfa784b4996b800ab2dc3085120244da519e8869abbdef487fd62fe7e275e4"
+      "sha256": "dde078ec691a04136b25096edd5b4d6122f8da4abe7b2713d0cbe88b0017e947"
     },
     {
       "bytes": 5244,
@@ -753,6 +753,72 @@
       "origin": "package-document-or-build-wrapper",
       "path": "verify-files.py",
       "sha256": "eca2e53dd49c24a57afb84f84328610223a0c1a21aeb0d5a1441c8c911d26abc"
+    },
+    {
+      "bytes": 791,
+      "origin": "package-document-or-build-wrapper",
+      "path": "paper/README.md",
+      "sha256": "f0f8a1684058e29c3a4497cf50fe1daa0d4b8d4d3dd9a505b32908725e5dd222"
+    },
+    {
+      "bytes": 152,
+      "origin": "package-document-or-build-wrapper",
+      "path": "paper/build.sh",
+      "sha256": "a2f9acbcab28b853927a9591009dac3b2fc5e453b0439bd8134eeae8e2b47998"
+    },
+    {
+      "bytes": 112846,
+      "origin": "package-document-or-build-wrapper",
+      "path": "paper/build/paper.pdf",
+      "sha256": "874d5f9326050938cd778b7d1e68f6764e5357cb4fe2616c4587815dcbbb5dc2"
+    },
+    {
+      "bytes": 1289,
+      "origin": "package-document-or-build-wrapper",
+      "path": "paper/data/endpoint-summary.json",
+      "sha256": "a869ec4cdfcc71e4ab422cb68c742bb5f5a213b6d53895d15fe311ca320eab5c"
+    },
+    {
+      "bytes": 1368,
+      "origin": "package-document-or-build-wrapper",
+      "path": "paper/data/manifest.json",
+      "sha256": "4f72eb66717cadf34b6562ff90d641439425d02b5693430f4de361ef438579e1"
+    },
+    {
+      "bytes": 1597,
+      "origin": "package-document-or-build-wrapper",
+      "path": "paper/data/model-predictions.csv",
+      "sha256": "ae66b8eb0c65051f2df60641fb1a7a2dcec7b7f0fdedbd59bf1b0ab604da7a49"
+    },
+    {
+      "bytes": 6983,
+      "origin": "package-document-or-build-wrapper",
+      "path": "paper/data/search-progress.csv",
+      "sha256": "84a7c067d1867f8bebf1c96e329c807505008e370c28e587905ff07e65372bf5"
+    },
+    {
+      "bytes": 1449,
+      "origin": "package-document-or-build-wrapper",
+      "path": "paper/data/width-efficiency.csv",
+      "sha256": "ebd51c34455c29fc4db7e2312f14181d8458aff1a64232696b16f4c5eb872d9a"
+    },
+    {
+      "bytes": 13004,
+      "origin": "package-document-or-build-wrapper",
+      "path": "paper/figures/continuation.pdf",
+      "sha256": "bc5434386fdb3d31e1a3a6f6d552dc615a872f461385588aa543953b662d40bd"
+    },
+    {
+      "bytes": 12801,
+      "origin": "package-document-or-build-wrapper",
+      "path": "paper/figures/width-efficiency.pdf",
+      "sha256": "830d6f5a8512aae148650c962c0f218c42691b0c8d7f75534c7a177f6f2efcee"
+    },
+    {
+      "bytes": 30105,
+      "origin": "package-document-or-build-wrapper",
+      "path": "paper/paper.md",
+      "sha256": "cd87c9c2c770054737c88b40a2c54aa32ede7639773063d8feb648604910f51d"
     }
   ],
   "generated_module": {
@@ -883,6 +949,17 @@
     "verification-source/rust-toolchain.toml",
     "verification-source/schemas/certificate-v1.schema.json",
     "verify-files.py",
+    "paper/README.md",
+    "paper/build.sh",
+    "paper/build/paper.pdf",
+    "paper/data/endpoint-summary.json",
+    "paper/data/manifest.json",
+    "paper/data/model-predictions.csv",
+    "paper/data/search-progress.csv",
+    "paper/data/width-efficiency.csv",
+    "paper/figures/continuation.pdf",
+    "paper/figures/width-efficiency.pdf",
+    "paper/paper.md",
     "manifest.json",
     "SHA256SUMS"
   ],

@@ -1,0 +1,15 @@
+[package]
+name = "mm-schema"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+
+[dependencies]
+malachite = { version = "=0.10.0", default-features = false, features = ["naturals_and_integers", "rationals"] }
+mm-core = { path = "../mm-core" }
+mm-rat = { path = "../mm-rat" }
+mm-tensor = { path = "../mm-tensor" }
+
+[lints]
+workspace = true

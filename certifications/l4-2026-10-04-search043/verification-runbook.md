@@ -15,10 +15,15 @@ In a directory containing the three downloaded files:
 
 ```sh
 tar -xzf l4-2026-10-04-search043-verification.tar.gz
-mkdir -p l4-2026-10-04-search043/payloads
-mv certificate.json Omega_1a05ebc4e32c1a21.lean.gz l4-2026-10-04-search043/payloads/
-cd l4-2026-10-04-search043
+mkdir -p l4-2026-10-04-search043/certifications/l4-2026-10-04-search043/payloads
+mv certificate.json Omega_1a05ebc4e32c1a21.lean.gz l4-2026-10-04-search043/certifications/l4-2026-10-04-search043/payloads/
+cd l4-2026-10-04-search043/certifications/l4-2026-10-04-search043
 ```
+
+The extracted archive retains the tagged repository layout: this package is in
+`certifications/l4-2026-10-04-search043/`, with shared paper build files in root
+`papers/`. From the package directory, `bash paper/build.sh` builds the paper;
+it is not necessary for certificate acceptance.
 
 The steps below independently verify the package and its mathematical result
 under the disclosed CN/AX1 trust boundary.
@@ -26,7 +31,7 @@ under the disclosed CN/AX1 trust boundary.
 ## Trust anchors
 
 `verify-files.py` checks files against `manifest.json`, which ships in the same
-package. The external anchors are the digests printed in the paper (§4 and
+package. The external anchors are the digests printed in the paper (§2 and
 Appendix A) and the release tag `l4-2026-10-04-search043`:
 
 - certificate: 459,013,469 bytes, SHA-256

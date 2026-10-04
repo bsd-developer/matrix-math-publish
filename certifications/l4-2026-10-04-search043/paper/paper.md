@@ -1,5 +1,6 @@
 ---
-title: "A CN-Certified Level-Four Matrix Multiplication Bound: Adaptive Tangent Search on a Laptop"
+title: "Improving the matrix multiplication exponent with a MacBook and a proof assistant"
+subtitle: "A CN-certified level-four bound, conditional on the combination-loss theorem"
 author: |
   BSD (bsd.developer@proton.me)\
   Independent Researcher
@@ -8,25 +9,32 @@ abstract: |
   We give an exact certificate for the rational-field matrix multiplication
   exponent bound $\omega_{\mathbb Q}\le 43740354192942056903/2^{64}
   =2.371169352063661\ldots$, below the displayed bound $2.371177$ of
-  Dupont et al. The certificate is checked under the CN (native-certified)
-  profile: a general Lean soundness proof plus one certificate-specific
-  native-evaluation axiom. Numerical refinement and certification ran locally
-  on an Apple M1 Max laptop, using CPU computation. The search builds small
-  second-order tangent models and restores weighted branch balance before
-  ranking candidates by the original nonsmooth objective. In eight recorded
-  same-origin width comparisons the wider, nested model always scored lower,
-  as its construction makes likely; only four met the recorded marginal
-  compute-efficiency threshold. Earlier matched controls in the same campaign
-  favored plain Adam. This is descriptive evidence from one adaptive
-  campaign, not a claim of optimizer superiority. An independent exact Rust
-  checker, a full Lean CN evaluation and a whole-module CN replay accepted the
-  selected 459 MB certificate; compiled statements, axiom dependencies and
-  deterministic replay artifacts were checked. The exponent inference uses the
-  combination-loss feasibility theorem of Alman et al., as stated by Dupont et
-  al., represented by an unproved Lean axiom in this package. Native evaluation
-  and its compiler/runtime dependencies remain explicit. The certificate can be
-  checked independently of the private numerical optimizer.
+  Dupont et al. The bound is the conclusion of a Lean theorem about the exact
+  459 MB certificate, checked under the CN (native-certified) profile: a
+  general Lean soundness proof plus one certificate-specific native-evaluation
+  axiom. A full Lean CN evaluation and a whole-module replay accepted the
+  certificate, an independent exact Rust checker agreed, and compiled
+  statements, axiom dependencies and deterministic replay artifacts were
+  checked. The exponent inference uses the combination-loss feasibility
+  theorem of Alman et al., as stated by Dupont et al., represented by an
+  unproved Lean axiom. Native evaluation and its compiler/runtime dependencies
+  remain explicit. Readers can recheck the claim from the release package
+  without the private numerical optimizer. Search and certification ran on a
+  MacBook Pro (Apple M1 Max, 64 GiB unified memory) using CPU computation.
+  The search builds small second-order tangent models and restores weighted
+  branch balance before ranking candidates by the original nonsmooth
+  objective. In eight recorded same-origin width comparisons, the wider nested
+  model always scored lower, as its construction makes likely; only four met
+  the recorded marginal compute-efficiency threshold. Earlier matched controls
+  in the same campaign favored plain Adam. This is descriptive evidence from
+  one adaptive campaign, not a claim of optimizer superiority.
 ---
+
+```{=latex}
+% Keep figures in the text flow: pandoc tables are longtables, which
+% miscount the page when a float sits at its top and overflow the page.
+\floatplacement{figure}{H}
+```
 
 # 1. Result and scope
 
@@ -47,7 +55,7 @@ independently checkable certificate and an explicit formal trust boundary.
 Alman et al. computed at $\ell^*=3$; the level-four instance relies on the
 feasibility theorem as stated for general $\ell^*$ in Dupont et al.'s Theorem 1.
 We have not independently re-derived that theorem or the equivalence of the
-level-four reformulation. Both are inherited through the axiom described in §5.
+level-four reformulation. Both are inherited through the axiom described in §3.
 
 Let $\omega_{\mathbb Q}$ denote the rational-field matrix multiplication
 exponent defined in the supplied Lean source. The result is
@@ -60,7 +68,7 @@ $$
 $$
 
 Equation (1) is the Lean theorem's conclusion under the CN and
-combination-loss assumptions specified in §5. It is not an axiom-free
+combination-loss assumptions specified in §3. It is not an axiom-free
 derivation of the exponent bound. The exact rational is authoritative;
 the displayed decimals are approximations. We make no all-fields claim.
 
@@ -74,7 +82,7 @@ this paper was written, so no claim is made about their unpublished checkpoint.
 | Numerical search score | **2.3711693500058737** |
 | Exact certified bound, approximately | **2.3711693520636611** |
 
-: Table 1. The selected point's numerical score and its distinct
+: The selected point's numerical score and its distinct
 outward-certified claim (1).
 
 The certified claim exceeds the numerical score by approximately
@@ -83,13 +91,190 @@ outward certification bounds. It is not a floating-point error estimate.
 
 This paper covers the whole level-four search campaign. That campaign had an
 earlier exploratory phase, which ended at the numerical milestone
-$2.371174031813689$, followed by the continuation reported in §3. Only the
+$2.371174031813689$, followed by the continuation reported in §6. Only the
 final search043 endpoint is certified here. Earlier milestones are numerical
 observations of the same campaign, not separate results.
 
-# 2. Objective and local search model
+**At a glance.** The claim (1) is the conclusion of a Lean theorem about the
+exact certificate bytes.
 
-## 2.1 Feasibility and the hard score
+| | |
+|---|---|
+| Machine-checked | Certificate acceptance (one full CN evaluation and a whole-module replay), soundness of the directed checker, and the maximum-entropy bound |
+| Assumed | Lean's three standard axioms; one certificate-specific native-evaluation axiom, with its compiler/runtime/GMP trust; and `AX1_combination_loss`, the cited combination-loss theorem, including the fidelity of its Lean transcription |
+| Corroborated | An independent exact Rust checker agrees |
+| How to check | Run `mm verify` (about 14 min) and `mm prove --profile cn` (about 4 h) from the release package (§4) |
+
+: What is proved, what is assumed, and how to check it.
+
+Sections 2--4 describe the certificate, the trust boundary and reader
+verification. Sections 5--6 describe how the point was found, and §7 discusses
+limitations.
+
+# 2. Exact certification
+
+The selected physical point was rationalized and supplied with fresh
+maximum-entropy witnesses and directed logarithm enclosures. This follows the
+certification scheme of Dupont et al.:
+
+- their Lemma 1 (§2.5): a strictly positive witness $y$ with the target
+  marginals and Lagrange residual $\varepsilon$ certifies
+  $H(y)\le H^{\max}_D(\rho)\le H(y)+2\varepsilon$;
+- their §4: exact rational evaluation with outward-rounded logarithms.
+
+Our implementation proves the Lemma 1 bound and the directed checker sound in
+Lean. Exact checking verifies the domain conditions and the sufficient
+feasibility inequality at (1). The Rust and Lean implementations do not use the
+numerical optimizer's floating-point score as evidence of feasibility.
+
+The canonical certificate contains **459,013,469 bytes**, with SHA-256
+
+```text
+1a05ebc4e32c1a2121e6da2020c4321cc1d505ea2564b29e3d64eb12ee5ff521
+```
+
+The generated module is `MatrixMath.Generated.Omega_1a05ebc4e32c1a21`.
+Its acceptance theorem applies to the complete literal bytes, claim and
+digest. Its exponent theorem concludes (1). The exact declaration names,
+elaborated statement hashes and transitive axioms are supplied in
+`compiled-assurance.json`.
+
+Two full CN executions completed on the same machine and pinned toolchain:
+
+- the first evaluation; and
+- a replay after retrieval through an initially empty local content-addressed
+  store.
+
+The replay regenerated and evaluated the whole module; it did not reuse the
+first acceptance Boolean or theorem as its computation. It confirms
+determinism and lossless transport, not independence from the toolchain.
+Exact Rust checks, compiled theorem/axiom audits, complete trust ledgers and all
+four deterministic artifact comparisons also passed.
+
+The Rust checker is an independent implementation, but it implements the same
+specification transcription as the Lean checker. A transcription error shared
+by both would not be detected by their agreement (§3).
+
+Table 3 gives command durations, including their prerequisite work.
+
+| Check | Command elapsed (s) |
+|---|---:|
+| First exact Rust check | 793.11 |
+| First full CN certification | 13,908.37 |
+| Retrieved exact Rust check | 827.38 |
+| Whole-module CN replay | 14,984.84 |
+
+: Result-specific checking durations. The CN commands include Rust
+prerequisites, module generation, dependency work and compiled auditing;
+these are not isolated Lean kernel times. The two standalone Rust checks
+are separate commands, not durations subtracted from the CN commands.
+
+Seven recorded sequential result-specific commands, including production,
+exact target selection and local retrieval, total about 9.13 hours. This
+excludes setup/builds, separate audits and reviews, and unknown-duration
+intervals. No whole-research compute total is asserted.
+
+# 3. Formal trust boundary
+
+Lean [@lean4] proves the general directed checker sound and connects byte
+acceptance to the defined feasibility predicate. The remaining dependencies
+of the result theorem fall into three groups:
+
+1. **Standard logical axioms:** `Classical.choice`, `propext` and `Quot.sound`.
+2. **Certificate-specific native evaluation:** one `native_decide` axiom
+   for the closed acceptance computation. This adds trust in the relevant
+   pinned compiler, native runtime and big-integer implementation.
+3. **The mathematical bridge:** `MatrixMath.AX1_combination_loss`, representing
+   the combination-loss feasibility theorem [@alman2025] as stated in Dupont
+   et al.'s Theorem 1 [@dupont2026]. It connects the checked feasibility
+   conditions to the exponent bound. Its proof is not formalized in this
+   package.
+
+AX1 is stated for every $q\ge1$ and $\ell^*\ge2$. These restrictions are
+enforced by the well-formedness predicate inside `CombinationLossFeasible`.
+The axiom is only as trustworthy as the Lean transcription of Dupont et al.'s
+Eq. (11). If that transcription were not faithful, AX1 could be false, and the
+result theorem would not establish the bound. The fidelity of the definitions
+in `lean/MatrixMath/Spec/Instance.lean` to Eq. (11) is therefore part of what a
+reader must audit. `verification-source/docs/traceability.md` maps each spec
+equation to its Lean definition and Rust implementation for that audit.
+
+Lean kernel soundness is a metatheoretic assumption, not a further Lean
+axiom. The result's transitive dependency list is mechanically recorded;
+that transparency does not remove the assumptions themselves. Rust
+agreement is independent corroboration of the computation, not of the
+transcription, and not a replacement for the Lean theorem's premises. The
+numerical optimizer, AI assistants and certificate producer remain outside the
+result's logical authority.
+
+Proving the bridge in Lean and replacing native evaluation by kernel-checkable
+certificate acceptance would strengthen the result. Neither has been
+completed for this released package. Work on those extensions does not
+retroactively change this theorem's axiom list.
+
+# 4. Independent reader verification
+
+The matching package is `certifications/l4-2026-10-04-search043`.
+Its `verification-runbook.md` separates four distinct operations:
+
+1. Check supplied sizes, hashes and lossless theorem transport with
+   `python3 verify-files.py`.
+2. Build the pinned Rust and Lean source in an isolated copy.
+3. Run the independent exact Rust check on the complete certificate.
+4. Run full CN certification, compare the generated module and compiled
+   assurance, and inspect the new runtime trust ledger.
+
+The last two commands, from the isolated `verification-source` directory,
+are
+
+```sh
+target/release/mm verify ../payloads/certificate.json --skip-lean --json
+target/release/mm prove ../payloads/certificate.json --profile cn --json
+```
+
+Rust 1.94.0, Lean 4.33.0 and the supplied dependency locks fix the intended
+build environment. File hashing checks identity; compilation checks source
+buildability. Neither alone establishes fresh certificate acceptance.
+
+The `verify-files.py` inventory is stored in the same package it checks. The
+external trust anchors are the certificate and module digests printed in §2 and
+Appendix A, together with the release tag.
+
+The recorded runs used a MacBook Pro (Apple M1 Max) with 64 GiB unified memory. Peak
+whole-system memory in use was about 34 GiB during the first CN run and 37 GiB
+during the replay. Both figures include roughly 20 GiB already in use by other
+processes when each run started. We therefore expect about 48 GiB to suffice,
+but have not tested a smaller machine. Durations are in Table 3.
+
+The hardware matters mainly through memory capacity. A laptop with 64 GiB of
+unified memory could hold the full level-four search state (about 4.66 million
+free coordinates, with dozens of full-length gradient arrays per model), and it
+could hold the Lean evaluation of a 459 MB generated theorem. Both ran on the
+CPU; the GPU was not used. We show feasibility on this machine, not that Apple
+hardware is uniquely required; any machine with comparable memory should work.
+
+
+The reduced reader workspace has fresh Rust and Lean source builds checked
+using caches of the exact pinned external dependencies. A full certificate
+execution from that reduced package with freshly downloaded dependencies
+has not yet been tested. The original complete CN runs described in §2
+remain the recorded mathematical acceptance evidence. A reader's new
+source closure and runtime ledger must be distinguished from the original
+full-source records.
+
+The certificate and compressed theorem are separate large payloads; GitHub's
+automatic source archives do not contain them. The release identifier is
+`l4-2026-10-04-search043`. The associated minimal verification archive,
+certificate, compressed theorem and download checksums provide the inputs
+listed in the runbook. The search program and its private checkpoints are
+not needed to reproduce certificate verification. The aggregate plotting
+data supplied with this paper allow its descriptive charts to be examined,
+but do not reproduce the private optimization campaign. Statements in §6
+about the exploratory phase rest on the author's records.
+
+# 5. Objective and local search model
+
+## 5.1 Feasibility and the hard score
 
 A physical point $p$ consists of distributions and leaf parameters on a
 recursion tree. Different paths retain different parameters even when
@@ -131,7 +316,7 @@ The coefficients include root weights, which are themselves optimized, and,
 at the matrix-size site, the target $\tau$. Branch equality and weighted branch
 balance therefore measure different things.
 
-## 2.2 Tangent models and finite restoration
+## 5.2 Tangent models and finite restoration
 
 At a model origin $\theta_0$, choose one minimum-attaining reference branch
 at each site. The other two branches give forty normalized contrasts
@@ -190,7 +375,7 @@ and partial expansions, including an eleven-direction comparison. Model width
 is a number of coupled directions in the full parameter space, not a search over
 six or twelve individual parameters.
 
-## 2.3 Why correction matters
+## 5.3 Why correction matters
 
 For convex branch weights $w_i$, define
 
@@ -223,10 +408,10 @@ The overall scheme belongs to established families:
 Those theories do not automatically give convergence guarantees for this
 nonconvex program, and we claim none.
 
-# 3. Observed search
+# 6. Observed search
 
-The search used CPU float64 on an Apple M1 Max laptop with 64 GiB unified
-memory. No GPU or cloud computation was used for the numerical search or the
+The search used CPU float64 on a MacBook Pro (Apple M1 Max) with 64 GiB
+unified memory. No GPU or cloud computation was used for the numerical search or the
 recorded local certificate executions. AI systems assisted with engineering,
 analysis and proof development under the author's direction. They were not the
 numerical optimizer: programs generated and evaluated finite candidates, which
@@ -235,7 +420,7 @@ were checked independently before numerical promotion.
 **Exploratory phase.** The campaign began with randomly initialized symmetric
 level-four search and a lift of a level-three solution. It then opened
 path-dependent parameters, tested fixed-block probability models, and added the
-branch-aware corrections of §2. This phase ended at the numerical milestone
+branch-aware corrections of §5. This phase ended at the numerical milestone
 $2.371174031813689$.
 
 **Negative results from that phase.** Several mathematically motivated
@@ -273,12 +458,12 @@ Only the selected final endpoint received the exact certificate (1).
 | Penultimate point | 2.3711694128460494 | 6 |
 | Selected search043 endpoint | **2.3711693500058737** | **6** |
 
-: Table 2. A subset of recorded numerical incumbents. Full plotted data are
+: A subset of recorded numerical incumbents. Full plotted data are
 in `data/search-progress.csv`. The first plotted stage is already below the
 exploratory-phase milestone; the graph does not represent every intervening
 preparation step.
 
-## 3.1 Wider models and the cost of extra directions
+## 6.1 Wider models and the cost of extra directions
 
 Eight recorded comparisons have both a wider score and a marginal funding
 calculation. Seven compare six with twelve directions; one compares six with
@@ -314,7 +499,7 @@ that extra directions did not consistently justify their additional cost, even
 when they lowered the score. The data do not show that six directions generally
 beat twelve or twenty, and do not establish a universal best expansion schedule.
 
-## 3.2 Smooth gain versus the original objective
+## 6.2 Smooth gain versus the original objective
 
 Comparison E illustrates the point:
 
@@ -334,7 +519,7 @@ raw hard gain and corrected hard gain for eleven observed proposals.
 Corrected steps differ from the original model displacement, so their
 outcomes are not direct measures of quadratic prediction accuracy.
 
-## 3.3 Geometry of the selected endpoint
+## 6.3 Geometry of the selected endpoint
 
 Three recorded readouts of the final point agree at $2.3711693500058737$.
 They use indexed, reference and serialized/reloaded indexed evaluations. Each
@@ -349,7 +534,7 @@ search heuristic only. The certificate checks the feasibility inequality, and
 ties play no role in its validity. Numerical agreement of these readouts remains
 distinct from exact rational acceptance.
 
-## 3.4 Compute accounting
+## 6.4 Compute accounting
 
 The 41 recorded continuation stages charge approximately **18.82 hours** to
 newly recorded model, endpoint, reconciliation and metric-setup phases. They
@@ -367,159 +552,6 @@ stages. That separate partial accounting prevents interpreting the 18.82-hour
 continuation as the cost of finding the bound from scratch. The work
 demonstrates feasibility of local laptop refinement and checking; it does not
 establish a comparative speed advantage over GPU-based search.
-
-# 4. Exact certification
-
-The selected physical point was rationalized and supplied with fresh
-maximum-entropy witnesses and directed logarithm enclosures. This follows the
-certification scheme of Dupont et al.:
-
-- their Lemma 1 (§2.5): a strictly positive witness $y$ with the target
-  marginals and Lagrange residual $\varepsilon$ certifies
-  $H(y)\le H^{\max}_D(\rho)\le H(y)+2\varepsilon$;
-- their §4: exact rational evaluation with outward-rounded logarithms.
-
-Our implementation proves the Lemma 1 bound and the directed checker sound in
-Lean. Exact checking verifies the domain conditions and the sufficient
-feasibility inequality at (1). The Rust and Lean implementations do not use the
-numerical optimizer's floating-point score as evidence of feasibility.
-
-The canonical certificate contains **459,013,469 bytes**, with SHA-256
-
-```text
-1a05ebc4e32c1a2121e6da2020c4321cc1d505ea2564b29e3d64eb12ee5ff521
-```
-
-The generated module is `MatrixMath.Generated.Omega_1a05ebc4e32c1a21`.
-Its acceptance theorem applies to the complete literal bytes, claim and
-digest. Its exponent theorem concludes (1). The exact declaration names,
-elaborated statement hashes and transitive axioms are supplied in
-`compiled-assurance.json`.
-
-Two full CN executions completed on the same machine and pinned toolchain:
-
-- the first evaluation; and
-- a replay after retrieval through an initially empty local content-addressed
-  store.
-
-The replay regenerated and evaluated the whole module; it did not reuse the
-first acceptance Boolean or theorem as its computation. It confirms
-determinism and lossless transport, not independence from the toolchain.
-Exact Rust checks, compiled theorem/axiom audits, complete trust ledgers and all
-four deterministic artifact comparisons also passed.
-
-The Rust checker is an independent implementation, but it implements the same
-specification transcription as the Lean checker. A transcription error shared
-by both would not be detected by their agreement (§5).
-
-Table 3 gives command durations, including their prerequisite work.
-
-| Check | Command elapsed (s) |
-|---|---:|
-| First exact Rust check | 793.11 |
-| First full CN certification | 13,908.37 |
-| Retrieved exact Rust check | 827.38 |
-| Whole-module CN replay | 14,984.84 |
-
-: Table 3. Result-specific checking durations. The CN commands include Rust
-prerequisites, module generation, dependency work and compiled auditing;
-these are not isolated Lean kernel times. The two standalone Rust checks
-are separate commands, not durations subtracted from the CN commands.
-
-Seven recorded sequential result-specific commands, including production,
-exact target selection and local retrieval, total about 9.13 hours. This
-excludes setup/builds, separate audits and reviews, and unknown-duration
-intervals. No whole-research compute total is asserted.
-
-# 5. Formal trust boundary
-
-Lean [@lean4] proves the general directed checker sound and connects byte
-acceptance to the defined feasibility predicate. The remaining dependencies
-of the result theorem fall into three groups:
-
-1. **Standard logical axioms:** `Classical.choice`, `propext` and `Quot.sound`.
-2. **Certificate-specific native evaluation:** one `native_decide` axiom
-   for the closed acceptance computation. This adds trust in the relevant
-   pinned compiler, native runtime and big-integer implementation.
-3. **The mathematical bridge:** `MatrixMath.AX1_combination_loss`, representing
-   the combination-loss feasibility theorem [@alman2025] as stated in Dupont
-   et al.'s Theorem 1 [@dupont2026]. It connects the checked feasibility
-   conditions to the exponent bound. Its proof is not formalized in this
-   package.
-
-AX1 is stated for every $q\ge1$ and $\ell^*\ge2$. These restrictions are
-enforced by the well-formedness predicate inside `CombinationLossFeasible`.
-The axiom is only as trustworthy as the Lean transcription of Dupont et al.'s
-Eq. (11). If that transcription were not faithful, AX1 could be false, and the
-result theorem would not establish the bound. The fidelity of the definitions
-in `lean/MatrixMath/Spec/Instance.lean` to Eq. (11) is therefore part of what a
-reader must audit. `verification-source/docs/traceability.md` maps each spec
-equation to its Lean definition and Rust implementation for that audit.
-
-Lean kernel soundness is a metatheoretic assumption, not a further Lean
-axiom. The result's transitive dependency list is mechanically recorded;
-that transparency does not remove the assumptions themselves. Rust
-agreement is independent corroboration of the computation, not of the
-transcription, and not a replacement for the Lean theorem's premises. The
-numerical optimizer, AI assistants and certificate producer remain outside the
-result's logical authority.
-
-Proving the bridge in Lean and replacing native evaluation by kernel-checkable
-certificate acceptance would strengthen the result. Neither has been
-completed for this released package. Work on those extensions does not
-retroactively change this theorem's axiom list.
-
-# 6. Independent reader verification
-
-The matching package is `certifications/l4-2026-10-04-search043`.
-Its `verification-runbook.md` separates four distinct operations:
-
-1. Check supplied sizes, hashes and lossless theorem transport with
-   `python3 verify-files.py`.
-2. Build the pinned Rust and Lean source in an isolated copy.
-3. Run the independent exact Rust check on the complete certificate.
-4. Run full CN certification, compare the generated module and compiled
-   assurance, and inspect the new runtime trust ledger.
-
-The last two commands, from the isolated `verification-source` directory,
-are
-
-```sh
-target/release/mm verify ../payloads/certificate.json --skip-lean --json
-target/release/mm prove ../payloads/certificate.json --profile cn --json
-```
-
-Rust 1.94.0, Lean 4.33.0 and the supplied dependency locks fix the intended
-build environment. File hashing checks identity; compilation checks source
-buildability. Neither alone establishes fresh certificate acceptance.
-
-The `verify-files.py` inventory is stored in the same package it checks. The
-external trust anchors are the certificate and module digests printed in §4 and
-Appendix A, together with the release tag.
-
-The recorded runs used an Apple M1 Max with 64 GiB unified memory. Peak
-whole-system memory in use was about 34 GiB during the first CN run and 37 GiB
-during the replay. Both figures include roughly 20 GiB already in use by other
-processes when each run started. We therefore expect about 48 GiB to suffice,
-but have not tested a smaller machine. Durations are in Table 3.
-
-The reduced reader workspace has fresh Rust and Lean source builds checked
-using caches of the exact pinned external dependencies. A full certificate
-execution from that reduced package with freshly downloaded dependencies
-has not yet been tested. The original complete CN runs described in §4
-remain the recorded mathematical acceptance evidence. A reader's new
-source closure and runtime ledger must be distinguished from the original
-full-source records.
-
-The certificate and compressed theorem are separate large payloads; GitHub's
-automatic source archives do not contain them. The release identifier is
-`l4-2026-10-04-search043`. The associated minimal verification archive,
-certificate, compressed theorem and download checksums provide the inputs
-listed in the runbook. The search program and its private checkpoints are
-not needed to reproduce certificate verification. The aggregate plotting
-data supplied with this paper allow its descriptive charts to be examined,
-but do not reproduce the private optimization campaign. Statements in §3
-about the exploratory phase rest on the author's records.
 
 # 7. Interpretation and limitations
 

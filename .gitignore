@@ -1,2 +1,17 @@
 target/
-lean/.lake
+**/lean/.lake/
+
+.DS_Store
+
+# Historical local provenance is not part of the reader source distribution.
+/certifications/l4-2026-09-30/original/
+/certifications/l4-2026-09-30/optimized/
+/certifications/l4-2026-09-30/root-review/
+/certifications/l4-2026-09-30/supplemental-objects/
+/certifications/l4-2026-09-30/subsequent-results/
+/certifications/l4-2026-09-30/package-index.json
+/certifications/l4-2026-09-30/SHA256SUMS
+/certifications/l4-2026-09-30/SOURCE-LAYOUT.md
+/certifications/l4-2026-09-30/source-relocation-receipt.json
+/certifications/l4-2026-09-30/verify_package.py
+**/paper-revision.md

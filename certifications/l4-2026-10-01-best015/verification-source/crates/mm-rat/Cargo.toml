@@ -1,0 +1,20 @@
+[package]
+name = "mm-rat"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+
+# Outward dyadic rounding (ADR 0011, `0011_spec.md`) is the registered
+# arithmetic, unconditionally: a binary either rounds in both evaluators or it
+# is not this crate. The former `dyadic-rounding` feature is deleted rather
+# than defaulted on, so no build configuration can reintroduce the unrounded
+# arithmetic §5.7 forbids one evaluator performing alone.
+
+[dependencies]
+malachite = { version = "=0.10.0", default-features = false, features = ["naturals_and_integers", "rationals"] }
+mm-core = { path = "../mm-core" }
+
+[lints]
+workspace = true
+

@@ -1,0 +1,135 @@
+{
+  "architecture": "arm64",
+  "external_proof_object_checkers": [],
+  "kernel": {
+    "assumption": "Lean kernel soundness is a metatheoretic assumption, not an additional Lean axiom",
+    "version": "Lean (version 4.33.0, arm64-apple-darwin24.6.0, commit d8b18978322de05a8f3dba51ef03cf5461676c17, Release)"
+  },
+  "logical_axioms": [
+    {
+      "axioms": [
+        "Classical.choice",
+        "MatrixMath.Generated.omegaCert_dfcede72c9dbf8eaf7b55f34cdd56d93dca7fe8a28fca2787466bec410f1873f._native.native_decide.ax_1_1",
+        "Quot.sound",
+        "propext"
+      ],
+      "declaration": "MatrixMath.Generated.omegaCert_dfcede72c9dbf8eaf7b55f34cdd56d93dca7fe8a28fca2787466bec410f1873f",
+      "kind": "theorem",
+      "statement": "@Eq.{1} Bool\n  (MatrixMath.Schema.acceptsOmegaDigest MatrixMath.Schema.Limits.default MatrixMath.Generated.bytes_dfcede72c9dbf8ea\n    MatrixMath.Generated.omegaClaim_dfcede72c9dbf8ea MatrixMath.Generated.omegaDigest_dfcede72c9dbf8ea)\n  Bool.true",
+      "statement_sha256": "2736f0dc030b68ae3f7acc59f5c4be121995af03cf97296dfdb7daa003e681eb"
+    },
+    {
+      "axioms": [
+        "Classical.choice",
+        "MatrixMath.AX1_combination_loss",
+        "MatrixMath.Generated.omegaCert_dfcede72c9dbf8eaf7b55f34cdd56d93dca7fe8a28fca2787466bec410f1873f._native.native_decide.ax_1_1",
+        "Quot.sound",
+        "propext"
+      ],
+      "declaration": "MatrixMath.Generated.omegaResult_dfcede72c9dbf8eaf7b55f34cdd56d93dca7fe8a28fca2787466bec410f1873f",
+      "kind": "theorem",
+      "statement": "@LE.le.{0} Real Real.instLE MatrixMath.omegaExponent\n  (@Rat.cast.{0} Real Real.instRatCast MatrixMath.Generated.omegaClaim_dfcede72c9dbf8ea)",
+      "statement_sha256": "5ac29bcea71e0f82bec128a9aefa14f770a2334c343908bc42cc35a44034a9a6"
+    }
+  ],
+  "mathlib_packages": [
+    {
+      "name": "mathlib",
+      "revision": "db584cd6d46c92f209a44c0f1c829460d327499d",
+      "tracked_status": ""
+    },
+    {
+      "name": "plausible",
+      "revision": "b7eb3304aeae834b12dda98993a37f6a41f6f0bb",
+      "tracked_status": ""
+    },
+    {
+      "name": "LeanSearchClient",
+      "revision": "5f4d51b81cbd3f6b32b156bfad9056621a040404",
+      "tracked_status": ""
+    },
+    {
+      "name": "importGraph",
+      "revision": "16f02aa7642864af59f1ff0e384a015994db9118",
+      "tracked_status": ""
+    },
+    {
+      "name": "proofwidgets",
+      "revision": "4be2e3d5087eeb272cf5a8853b8f9dd025ef5957",
+      "tracked_status": ""
+    },
+    {
+      "name": "aesop",
+      "revision": "3448c0bcc5ce01b2d1546e483ec3620e32df3d0e",
+      "tracked_status": ""
+    },
+    {
+      "name": "Qq",
+      "revision": "92c15be17b7caf78c2ad767ec40f89052d908d81",
+      "tracked_status": ""
+    },
+    {
+      "name": "batteries",
+      "revision": "4488d40d070b9700d4d5a6aa342f0d40c31b2a2d",
+      "tracked_status": ""
+    },
+    {
+      "name": "Cli",
+      "revision": "6130a47896ce867c6a4a55373441e59e565bad0f",
+      "tracked_status": ""
+    }
+  ],
+  "native_bigint": {
+    "bundled_archive_version": "6.3.0",
+    "implementation": "GNU GMP",
+    "recorded_artifacts": [
+      {
+        "bytes": 829224,
+        "name": "libgmp.a",
+        "sha256": "a41cc2b25b6b7d261aa43b80f9d0674ccfd90a583d74d79fd28bcfa596a816cd"
+      },
+      {
+        "bytes": 173473536,
+        "name": "libleanshared.dylib",
+        "sha256": "2fc79202bfe36e7db7e2db0f3b8d3b9ede110d279cc9cf37d22327160c166ddf"
+      }
+    ]
+  },
+  "native_compiler": {
+    "lake": {
+      "version": "Lake version 5.0.0-src+d8b1897 (Lean version 4.33.0)"
+    },
+    "lean": {
+      "version": "Lean (version 4.33.0, arm64-apple-darwin24.6.0, commit d8b18978322de05a8f3dba51ef03cf5461676c17, Release)"
+    },
+    "native_c_compiler": {
+      "version": "clang version 22.1.4 (https://github.com/llvm/llvm-project 35990504507d79e0b9deb809c8ee5e1b34ceef20)\nTarget: arm64-apple-darwin27.0.0\nThread model: posix"
+    },
+    "os": {
+      "version": "ProductName:\t\tmacOS\nProductVersion:\t\t27.0\nBuildVersion:\t\t26A5353q"
+    }
+  },
+  "native_evaluation_assumption": "CN trusts the bound Lean compiler, native runtime and bigint implementation for the single certificate-local native evaluation axiom",
+  "native_evaluation_axiom": {
+    "declaration": "MatrixMath.Generated.omegaCert_dfcede72c9dbf8eaf7b55f34cdd56d93dca7fe8a28fca2787466bec410f1873f._native.native_decide.ax_1_1",
+    "kind": "axiom",
+    "statement": "@Eq.{1} Bool\n  (@Decidable.decide\n    (@Eq.{1} Bool\n      (MatrixMath.Schema.acceptsOmegaDigest MatrixMath.Schema.Limits.default MatrixMath.Generated.bytes_dfcede72c9dbf8ea\n        MatrixMath.Generated.omegaClaim_dfcede72c9dbf8ea MatrixMath.Generated.omegaDigest_dfcede72c9dbf8ea)\n      Bool.true)\n    (instDecidableEqBool\n      (MatrixMath.Schema.acceptsOmegaDigest MatrixMath.Schema.Limits.default MatrixMath.Generated.bytes_dfcede72c9dbf8ea\n        MatrixMath.Generated.omegaClaim_dfcede72c9dbf8ea MatrixMath.Generated.omegaDigest_dfcede72c9dbf8ea)\n      Bool.true))\n  Bool.true",
+    "statement_sha256": "4bc42ad7f729e5309a4128c1a0ae698a608b05809343e8e1bbef22dd6cebeb01"
+  },
+  "note": "New public summary of recorded local runtime dependencies; not a literal copy of the private complete ledger and not fresh package verification.",
+  "operating_system": "macOS-27.0-arm64-arm-64bit",
+  "profile": "CN",
+  "project_axiom": {
+    "name": "MatrixMath.AX1_combination_loss",
+    "role": "Cited combination-loss theorem translates checked feasibility into an upper exponent bound; not proved by this project"
+  },
+  "schema": "best015-public-runtime-trust-summary/1",
+  "untrusted_or_cross_check_only": [
+    "Rust exact checker",
+    "Python certificate producer",
+    "numerical optimizer",
+    "MPFR/mpmath",
+    "artifact generator",
+    "transport and archive software"
+  ]
+}

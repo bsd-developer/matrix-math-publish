@@ -1,0 +1,888 @@
+{
+  "certificate": {
+    "bytes": 458921565,
+    "path": "payloads/certificate.json",
+    "sha256": "dfcede72c9dbf8eaf7b55f34cdd56d93dca7fe8a28fca2787466bec410f1873f"
+  },
+  "claim": {
+    "denominator": "18446744073709551616",
+    "numerator": "43740440563687076465",
+    "profile": "CN"
+  },
+  "files": [
+    {
+      "bytes": 156,
+      "origin": "package-document-or-build-wrapper",
+      "path": ".gitignore",
+      "sha256": "6b0dd4b27895c3dd739818e26c83c5333b0b549a12e8476a2451ea44cb8d4478"
+    },
+    {
+      "bytes": 1754,
+      "origin": "package-document-or-build-wrapper",
+      "path": "README.md",
+      "sha256": "5016ca3fb1adc619ab70d7688500bd3b06bc6bcc98a46348a050e7fb409e561d"
+    },
+    {
+      "bytes": 3766,
+      "origin": "literal-copy",
+      "path": "assurance.json",
+      "sha256": "bedc3cd94ec9d901089aef66b75c757eb25d9e61b9e591bab7b667ef593db80b"
+    },
+    {
+      "bytes": 2184,
+      "origin": "literal-copy",
+      "path": "compiled-assurance.json",
+      "sha256": "b6e7b3d65e3ede1ae9c8ae5fadfdcbc05f903a6545dca3999d5710f9ec5f08a7"
+    },
+    {
+      "bytes": 82086841,
+      "origin": "literal-copy",
+      "path": "payloads/Omega_dfcede72c9dbf8ea.lean.gz",
+      "sha256": "71f6c4c80be5cf14516d4c3fc1687352c44e0fce568dd6a1b541d59abb9d105d"
+    },
+    {
+      "bytes": 458921565,
+      "origin": "literal-copy",
+      "path": "payloads/certificate.json",
+      "sha256": "dfcede72c9dbf8eaf7b55f34cdd56d93dca7fe8a28fca2787466bec410f1873f"
+    },
+    {
+      "bytes": 5789,
+      "origin": "package-document-or-build-wrapper",
+      "path": "runtime-trust-summary.json",
+      "sha256": "0046b0d2616dfc42754a9d06b61426605e468d910864e7f899df96dc06e141ad"
+    },
+    {
+      "bytes": 882,
+      "origin": "literal-copy",
+      "path": "tcb.json",
+      "sha256": "4a41b785e49a3b89a992330eff80ec4074251720a7e9bef4b32e3b46f0ee9cf3"
+    },
+    {
+      "bytes": 1617,
+      "origin": "package-document-or-build-wrapper",
+      "path": "trust-boundary.md",
+      "sha256": "951d8e4eec7dfc04351868c3a798dab93f52e62b503600007bad8a6654185bf2"
+    },
+    {
+      "bytes": 3517,
+      "origin": "package-document-or-build-wrapper",
+      "path": "verification-runbook.md",
+      "sha256": "e74f19a0e274322bbd3a4f6c7282168ab5e3ba79cc96e20bb1298f475229d459"
+    },
+    {
+      "bytes": 5244,
+      "origin": "reduced-workspace-lock",
+      "path": "verification-source/Cargo.lock",
+      "sha256": "1be2088d538e5bb0bcfca1eea7003722f8d05423c2673bcc68032a3cd6d84332"
+    },
+    {
+      "bytes": 1207,
+      "origin": "package-document-or-build-wrapper",
+      "path": "verification-source/Cargo.toml",
+      "sha256": "cbce89804c12f93f88c42793147bbfdeaffbe6733ae5c9d06001ec9b259118b0"
+    },
+    {
+      "bytes": 675,
+      "origin": "literal-copy",
+      "path": "verification-source/crates/mm-cli/Cargo.toml",
+      "sha256": "3915e2c98edd78e99fdbade45f9077bd9dac3617a354b9a38d92f0c2cad29d8a"
+    },
+    {
+      "bytes": 14616,
+      "origin": "literal-copy",
+      "path": "verification-source/crates/mm-cli/src/cas.rs",
+      "sha256": "86c95b2143cab9ccde54e1cad59d506d006e87dcfd616751c1ffcf597ddf6317"
+    },
+    {
+      "bytes": 15339,
+      "origin": "literal-copy",
+      "path": "verification-source/crates/mm-cli/src/config.rs",
+      "sha256": "fd6441074033c28256312cdbfd97369b03869972cff76904b76312eee0b3a6ad"
+    },
+    {
+      "bytes": 13555,
+      "origin": "literal-copy",
+      "path": "verification-source/crates/mm-cli/src/lean.rs",
+      "sha256": "6a271eb974a7c3b173650084384f58c06fdc12950b240550b6740243931085f5"
+    },
+    {
+      "bytes": 21881,
+      "origin": "literal-copy",
+      "path": "verification-source/crates/mm-cli/src/lean_omega.rs",
+      "sha256": "d60dbc767e161261cfd2fef3a7725fddb5b37ac952806e656997687dcd867eb8"
+    },
+    {
+      "bytes": 3881,
+      "origin": "literal-copy",
+      "path": "verification-source/crates/mm-cli/src/main.rs",
+      "sha256": "106fbba555386513570cb1df9a5a706601fd1928ef194a6fd69e85c6e0142d44"
+    },
+    {
+      "bytes": 40803,
+      "origin": "literal-copy",
+      "path": "verification-source/crates/mm-cli/src/prove.rs",
+      "sha256": "5e0c7732f73d75803e4fc4c6fea0aa2287376664d9d989ed8f5ca53f28dbad53"
+    },
+    {
+      "bytes": 10086,
+      "origin": "literal-copy",
+      "path": "verification-source/crates/mm-cli/src/replay.rs",
+      "sha256": "46bc9921e6d34a5a44d9b07cf9107d5fc53a3c013ea2eff1c317913ec2c00fef"
+    },
+    {
+      "bytes": 17002,
+      "origin": "literal-copy",
+      "path": "verification-source/crates/mm-cli/src/report.rs",
+      "sha256": "1ea5e1a147e402b201f3ce6428bccdd62862513ddf5529b4c3c3159b5229b3a2"
+    },
+    {
+      "bytes": 5114,
+      "origin": "literal-copy",
+      "path": "verification-source/crates/mm-cli/src/roundtrip.rs",
+      "sha256": "6d9a968fb422d4873982c303865320d8bee52898c1699b9cdd71a0e126404323"
+    },
+    {
+      "bytes": 14000,
+      "origin": "literal-copy",
+      "path": "verification-source/crates/mm-cli/src/search.rs",
+      "sha256": "511ced1b1efcb2be2aaaed241061c328023e73fa46592f97adeccb41f496b35c"
+    },
+    {
+      "bytes": 1900,
+      "origin": "literal-copy",
+      "path": "verification-source/crates/mm-cli/src/series_length.rs",
+      "sha256": "35b910637d3b8664a7c2aff15e5329092dd51677f547866ec16e02722d020011"
+    },
+    {
+      "bytes": 33928,
+      "origin": "literal-copy",
+      "path": "verification-source/crates/mm-cli/src/verify.rs",
+      "sha256": "5204666745c44c96f7b3ac92e2c92c8153098dd76a037e9e36d75d2292690597"
+    },
+    {
+      "bytes": 159,
+      "origin": "literal-copy",
+      "path": "verification-source/crates/mm-core/Cargo.toml",
+      "sha256": "dc452379075cd744c12a9831d9ad56deb947332367a4c5809a8357403b4795e6"
+    },
+    {
+      "bytes": 6606,
+      "origin": "literal-copy",
+      "path": "verification-source/crates/mm-core/src/codes.rs",
+      "sha256": "4ea1501786d9be3e7d2308cfc809ab778dd28b95ef09da3761663ec9366eb3b6"
+    },
+    {
+      "bytes": 8582,
+      "origin": "literal-copy",
+      "path": "verification-source/crates/mm-core/src/dims.rs",
+      "sha256": "6e867bed5d1b111218df20970925b9b5cea96f31dfe01d265a6f0c556d4f1700"
+    },
+    {
+      "bytes": 8782,
+      "origin": "literal-copy",
+      "path": "verification-source/crates/mm-core/src/error.rs",
+      "sha256": "3683994d9c286ae792f08d7ef169f85cf30b5c319c7b6fb5ae3b386f841fd391"
+    },
+    {
+      "bytes": 7072,
+      "origin": "literal-copy",
+      "path": "verification-source/crates/mm-core/src/hash.rs",
+      "sha256": "b2f7aa2e15cde0fde376f496c2cde303f1c58c9c0329840e4fc5b0487d1545de"
+    },
+    {
+      "bytes": 1804,
+      "origin": "literal-copy",
+      "path": "verification-source/crates/mm-core/src/hex.rs",
+      "sha256": "57c74e9f466a76ee349b7f228e6b5af61f0f6c4375c3e0dbe7bddac072cd1556"
+    },
+    {
+      "bytes": 2500,
+      "origin": "literal-copy",
+      "path": "verification-source/crates/mm-core/src/level.rs",
+      "sha256": "33cae2266c6cf1ec4f750505ef6855b9ee6cb16c0edb60665427a82a11d6774f"
+    },
+    {
+      "bytes": 2745,
+      "origin": "literal-copy",
+      "path": "verification-source/crates/mm-core/src/lib.rs",
+      "sha256": "c2ff48ed3641a1bc689c92b125ab15e9d4ef0d1427927745853ad8b1c9935079"
+    },
+    {
+      "bytes": 3258,
+      "origin": "literal-copy",
+      "path": "verification-source/crates/mm-core/src/modulus.rs",
+      "sha256": "2a618296aa16b7e0a01b5dddbc4695c1d43b774c263f944ecb0286e0f8306903"
+    },
+    {
+      "bytes": 12707,
+      "origin": "literal-copy",
+      "path": "verification-source/crates/mm-core/src/path.rs",
+      "sha256": "b6a6217700047b56270e18673ab7131a3809f5522d550061473fd7f19034280e"
+    },
+    {
+      "bytes": 4379,
+      "origin": "literal-copy",
+      "path": "verification-source/crates/mm-core/src/region.rs",
+      "sha256": "30aa5c5608d8f94c35140fb23d971fc9e0b3b58842dbe6dd507581f3a74c1fd7"
+    },
+    {
+      "bytes": 6719,
+      "origin": "literal-copy",
+      "path": "verification-source/crates/mm-core/src/shape.rs",
+      "sha256": "65641e279cc4d3a433a94bf314d6c1146ea7a8b444b515429d3a651dfcc5f78d"
+    },
+    {
+      "bytes": 392,
+      "origin": "literal-copy",
+      "path": "verification-source/crates/mm-exact/Cargo.toml",
+      "sha256": "d296beaf6cb6992abfec041c5cef7538531c810c3f67c64571634f5a5d131975"
+    },
+    {
+      "bytes": 4049,
+      "origin": "literal-copy",
+      "path": "verification-source/crates/mm-exact/src/bridge.rs",
+      "sha256": "a0539def43caa6b7eb07792cd473f55f4a52e55783b7949a06dd74d119dc389b"
+    },
+    {
+      "bytes": 9365,
+      "origin": "literal-copy",
+      "path": "verification-source/crates/mm-exact/src/domain.rs",
+      "sha256": "aba184bc8f6010a7552fb6c62af2ba218bf6e9300479b204dfccfd673ccf7483"
+    },
+    {
+      "bytes": 45694,
+      "origin": "literal-copy",
+      "path": "verification-source/crates/mm-exact/src/evaluate.rs",
+      "sha256": "ea83ba6e29e7b8d4e7c5f6b44c1db864c9f7d9b7212c34c321f16e5651fbb44d"
+    },
+    {
+      "bytes": 1625,
+      "origin": "literal-copy",
+      "path": "verification-source/crates/mm-exact/src/instance.rs",
+      "sha256": "f8d493a22ce68ab197d6b0d349db52c5bc6cbfbd60f8d3ae4447b6bf3798a878"
+    },
+    {
+      "bytes": 929,
+      "origin": "literal-copy",
+      "path": "verification-source/crates/mm-exact/src/lib.rs",
+      "sha256": "23c384f4de22b38ddcb6465731fdfc7bc468a184f85977e883a17b59eea08df0"
+    },
+    {
+      "bytes": 8546,
+      "origin": "literal-copy",
+      "path": "verification-source/crates/mm-exact/src/maxent.rs",
+      "sha256": "9bcd2a8b5ed8cb0ed2cf983b6cd5a46d6d8b89c4130dde0bea6466244ca33240"
+    },
+    {
+      "bytes": 49926,
+      "origin": "literal-copy",
+      "path": "verification-source/crates/mm-exact/src/symmetric.rs",
+      "sha256": "9a2e1d6a938633b4e311adb3e97fdc5eb3a92d808540f5448365ef38b3b83fed"
+    },
+    {
+      "bytes": 24572,
+      "origin": "literal-copy",
+      "path": "verification-source/crates/mm-exact/src/tree.rs",
+      "sha256": "b4e7de5bdd41bc6a1c955e50e7ce519035e01b831c63c9fea0e01627c71d82b0"
+    },
+    {
+      "bytes": 684,
+      "origin": "literal-copy",
+      "path": "verification-source/crates/mm-rat/Cargo.toml",
+      "sha256": "2598d3f2bc984c44195d40ee4a7a1d3172c9c2ad5daa60408aa046c041a7ade5"
+    },
+    {
+      "bytes": 10810,
+      "origin": "literal-copy",
+      "path": "verification-source/crates/mm-rat/src/bounds.rs",
+      "sha256": "ba0bbc34d99ab129b807abb96b6e54240c5ae03d069c7f23506b8d6a5c66a1d0"
+    },
+    {
+      "bytes": 9031,
+      "origin": "literal-copy",
+      "path": "verification-source/crates/mm-rat/src/entropy.rs",
+      "sha256": "b1ba2335b5acdfb2bdffaf8aec3655cb83595de46620c484eb8b2e1fde792bab"
+    },
+    {
+      "bytes": 3738,
+      "origin": "literal-copy",
+      "path": "verification-source/crates/mm-rat/src/grammar.rs",
+      "sha256": "ac246ce2b6238ce6f2447c15f9ddc7ed1809b6b18fdbe556b454671d4a555999"
+    },
+    {
+      "bytes": 982,
+      "origin": "literal-copy",
+      "path": "verification-source/crates/mm-rat/src/lib.rs",
+      "sha256": "6dd79447a26d065d7b1d16ddfd0d6ae615c93c59438c2bce8aadcb29546c22b4"
+    },
+    {
+      "bytes": 21182,
+      "origin": "literal-copy",
+      "path": "verification-source/crates/mm-rat/src/log2.rs",
+      "sha256": "13e8f128887fed4005cd54cb711450581308619b051407b2b7e24089cc8b20e1"
+    },
+    {
+      "bytes": 12037,
+      "origin": "literal-copy",
+      "path": "verification-source/crates/mm-rat/src/rational.rs",
+      "sha256": "729e3a3bf4ab14cb5fcf2b0d6f39cc01be3f78f19831629eef591af4ea1d95cb"
+    },
+    {
+      "bytes": 250,
+      "origin": "literal-copy",
+      "path": "verification-source/crates/mm-registry/Cargo.toml",
+      "sha256": "bebbfd543aba7258bdef2b7401553da9f594c1bddebe65503e1d3bad1d4a6c95"
+    },
+    {
+      "bytes": 5081,
+      "origin": "literal-copy",
+      "path": "verification-source/crates/mm-registry/src/cas.rs",
+      "sha256": "ad0821390efbad0060357e214e7f77e3020369e4af75097dc458676e9c9a1e2c"
+    },
+    {
+      "bytes": 480,
+      "origin": "literal-copy",
+      "path": "verification-source/crates/mm-registry/src/lib.rs",
+      "sha256": "987d29e83b6fb32784d5a569893ac760918e6ae8d8300669588e6851bd059404"
+    },
+    {
+      "bytes": 3440,
+      "origin": "literal-copy",
+      "path": "verification-source/crates/mm-registry/src/tcb.rs",
+      "sha256": "8657a5546de7f4550e949062d32c682c41704904dba25dcf3e3d54a7454a7cd4"
+    },
+    {
+      "bytes": 393,
+      "origin": "literal-copy",
+      "path": "verification-source/crates/mm-schema/Cargo.toml",
+      "sha256": "b8982f5f00859735b18e045cb422f93d138d341d545750c3ffc6ae35b7e79e6f"
+    },
+    {
+      "bytes": 23887,
+      "origin": "literal-copy",
+      "path": "verification-source/crates/mm-schema/src/certificate.rs",
+      "sha256": "7233a742bcf3526025a6e3115056dd64d765045dc5f682366ac1fc894f49b1a1"
+    },
+    {
+      "bytes": 1570,
+      "origin": "literal-copy",
+      "path": "verification-source/crates/mm-schema/src/lib.rs",
+      "sha256": "29623bde3eb531691e555475c02b01b7f1bbe965a06cd8fa613cbf3f767b26c7"
+    },
+    {
+      "bytes": 3846,
+      "origin": "literal-copy",
+      "path": "verification-source/crates/mm-schema/src/limits.rs",
+      "sha256": "2f5ec6a980b7d816a81a2a3daaf87a6013289cb5dde40ce0e0e3bfd4a794d800"
+    },
+    {
+      "bytes": 20242,
+      "origin": "literal-copy",
+      "path": "verification-source/crates/mm-schema/src/omega.rs",
+      "sha256": "c051bc53ce90740594821bcd66cc9174162463b0deaedd5e481faaecbb62b1af"
+    },
+    {
+      "bytes": 15228,
+      "origin": "literal-copy",
+      "path": "verification-source/crates/mm-schema/src/reader.rs",
+      "sha256": "73d84d5182ef6540c581899e2146851076e2f880ad3a2ed19ce01af4ad1e8a84"
+    },
+    {
+      "bytes": 34209,
+      "origin": "literal-copy",
+      "path": "verification-source/crates/mm-schema/src/symmetric.rs",
+      "sha256": "5afd34a9ef09beab0c02eeeef156ed43450fb703364465c951e0451d01e856d3"
+    },
+    {
+      "bytes": 5635,
+      "origin": "literal-copy",
+      "path": "verification-source/crates/mm-schema/src/writer.rs",
+      "sha256": "a1ffc66e9771bd2b1fbb6eaac4cce32a2d80c97838cac0f2c85ebb13e503be91"
+    },
+    {
+      "bytes": 248,
+      "origin": "literal-copy",
+      "path": "verification-source/crates/mm-search/Cargo.toml",
+      "sha256": "e4209168318242e331ca712449faf3789fdb4532e33bdaa4cebbac55efb7eb5e"
+    },
+    {
+      "bytes": 2302,
+      "origin": "literal-copy",
+      "path": "verification-source/crates/mm-search/src/bridge.rs",
+      "sha256": "b0b7782ce65c5dd685e9872593e4ef22ffb4a00d187de10d32269fd56c580c0d"
+    },
+    {
+      "bytes": 12233,
+      "origin": "literal-copy",
+      "path": "verification-source/crates/mm-search/src/f2.rs",
+      "sha256": "ed8954e469f560147d523c2242f9187bddcfaade89c334e148f3aa47ad3b16b7"
+    },
+    {
+      "bytes": 949,
+      "origin": "literal-copy",
+      "path": "verification-source/crates/mm-search/src/lib.rs",
+      "sha256": "2486778e470afafb2da4f1d466fdba874e3661b2b67472d0b36044d28b77a63c"
+    },
+    {
+      "bytes": 5823,
+      "origin": "literal-copy",
+      "path": "verification-source/crates/mm-search/src/rng.rs",
+      "sha256": "8b4aaf0c4970b4c3e82f8315986d2a24e9d7e913ce870328b372c4400e530e8a"
+    },
+    {
+      "bytes": 27892,
+      "origin": "literal-copy",
+      "path": "verification-source/crates/mm-search/src/walk.rs",
+      "sha256": "c40f7bc3ebbe07203d32dedac2b7226105f52be654394bc19ea4f0889bbccd27"
+    },
+    {
+      "bytes": 5686,
+      "origin": "literal-copy",
+      "path": "verification-source/crates/mm-search/src/witness.rs",
+      "sha256": "0fe43b7ac8c7a51c7bb28426e43bad1413d05fa6fa5d4b38f2809dadf3220f4a"
+    },
+    {
+      "bytes": 355,
+      "origin": "literal-copy",
+      "path": "verification-source/crates/mm-tensor/Cargo.toml",
+      "sha256": "52c154094bc361c3d7756f2c2f4a2f5355db0a7d6d5d7b988ec2f4c0d61707b6"
+    },
+    {
+      "bytes": 8744,
+      "origin": "literal-copy",
+      "path": "verification-source/crates/mm-tensor/src/basis.rs",
+      "sha256": "7e8ecd4f35a532d7e497d7ecd3f32a6940bb6cc53e51c6b80b043ecf80661514"
+    },
+    {
+      "bytes": 8097,
+      "origin": "literal-copy",
+      "path": "verification-source/crates/mm-tensor/src/decomposition.rs",
+      "sha256": "9f5ece17a46db5d772d8e36bda4aa327477dc901dbbe2623c13d4e1b40f9c93f"
+    },
+    {
+      "bytes": 3347,
+      "origin": "literal-copy",
+      "path": "verification-source/crates/mm-tensor/src/iso.rs",
+      "sha256": "1f9eb661d74e4dd3eaa379fa4a20e95ee29eeabd7b7f4fe36d33dd281e928b9a"
+    },
+    {
+      "bytes": 807,
+      "origin": "literal-copy",
+      "path": "verification-source/crates/mm-tensor/src/lib.rs",
+      "sha256": "649747b1cf6b41e144c876aee5ab6aec9496ab416f129f28ccb9b3d01197e81e"
+    },
+    {
+      "bytes": 5971,
+      "origin": "literal-copy",
+      "path": "verification-source/crates/mm-tensor/src/moves.rs",
+      "sha256": "152cbb2f7d49590dd68a07482a732b1f703b3785c04cd0a23b815f7397ad31bc"
+    },
+    {
+      "bytes": 18527,
+      "origin": "literal-copy",
+      "path": "verification-source/crates/mm-tensor/src/ring.rs",
+      "sha256": "abb7f36b96e3dd96078303f24581561e94ca98f2f3564762fe7658bcbab57485"
+    },
+    {
+      "bytes": 6105,
+      "origin": "literal-copy",
+      "path": "verification-source/crates/mm-tensor/src/verify.rs",
+      "sha256": "1a6f77d2df9a83b2cfe3173d842b098deb477a5dfdb472f7ab3781b9a30020cc"
+    },
+    {
+      "bytes": 4049,
+      "origin": "literal-copy",
+      "path": "verification-source/docs/adr/0002-trust-and-certification-profiles.md",
+      "sha256": "1bc0a2674e5cdb5b73d856147585548decf439539f2bdaf341fb6edc5d5820a8"
+    },
+    {
+      "bytes": 9300,
+      "origin": "literal-copy",
+      "path": "verification-source/docs/adr/0011-outward-dyadic-rounding.md",
+      "sha256": "d0f1633645b3b5c4fe6438410865b08867f66e31a9ce8b1bd5dc07de638b6dfc"
+    },
+    {
+      "bytes": 3294,
+      "origin": "literal-copy",
+      "path": "verification-source/docs/adr/0013-definitional-omega.md",
+      "sha256": "9cc2047636deb82d8afb74c80b144ee271cfbf6f6dee0a00e6bb25e7d6b2ff16"
+    },
+    {
+      "bytes": 3822,
+      "origin": "literal-copy",
+      "path": "verification-source/docs/adr/0014-result-local-compiled-assurance.md",
+      "sha256": "bebe0a0ac25e12b5a4c4ec5ccd401a6cd207225251e86d860fb463414554185c"
+    },
+    {
+      "bytes": 2244,
+      "origin": "literal-copy",
+      "path": "verification-source/docs/adr/0026-raw-certificate-literals.md",
+      "sha256": "105ee588b03e583034d9c5811f0e613414e89500d679f3d92e8d2bbdec627d39"
+    },
+    {
+      "bytes": 6459,
+      "origin": "literal-copy",
+      "path": "verification-source/docs/adr/0027-wf-root-positivity.md",
+      "sha256": "7c5558f51fa7e1e4f225a932ab73a772905089cc78f034b554e4e6275ee16f4b"
+    },
+    {
+      "bytes": 3725,
+      "origin": "literal-copy",
+      "path": "verification-source/docs/adr/0028-stack-safe-shared-exact-arithmetic.md",
+      "sha256": "0d0873ada58f15ca7e960cb123c8546dbdca20b3f4aa0b5b4da6d759ecd03584"
+    },
+    {
+      "bytes": 308,
+      "origin": "literal-copy",
+      "path": "verification-source/docs/source-lock.json",
+      "sha256": "6d79003aef7ae06502a9218709d07f9eeeabc27daeef1c4a9483067a9af37477"
+    },
+    {
+      "bytes": 116033,
+      "origin": "literal-copy",
+      "path": "verification-source/docs/specs/0001_spec.md",
+      "sha256": "59e4a86bbf4c2755ec52c5d95f7465cb4e12ca19aef08bc51d9454e1b53a5814"
+    },
+    {
+      "bytes": 37523,
+      "origin": "literal-copy",
+      "path": "verification-source/docs/specs/0002_spec.md",
+      "sha256": "1f97e329c514f789206fe01649dd2c4cf0aadd90761dcc22b0f397d8da2219a6"
+    },
+    {
+      "bytes": 30901,
+      "origin": "literal-copy",
+      "path": "verification-source/docs/specs/0004_spec.md",
+      "sha256": "9166c96ed1ff418bf046593e2c67aeae5dc16bcf3fe7b5007cc9a5b06980610e"
+    },
+    {
+      "bytes": 50285,
+      "origin": "literal-copy",
+      "path": "verification-source/docs/specs/0007_spec.md",
+      "sha256": "046b67a0e44de39f218184a339df1a788f5392ceec8e8a916bf30fdd84fa40ca"
+    },
+    {
+      "bytes": 5036,
+      "origin": "literal-copy",
+      "path": "verification-source/docs/specs/0011_spec.md",
+      "sha256": "607133849418ee0acb0db923f7dd85e2ec14fe4ea895d5df7883098a2c87d694"
+    },
+    {
+      "bytes": 14898,
+      "origin": "literal-copy",
+      "path": "verification-source/docs/specs/0017_spec.md",
+      "sha256": "56bbc3e55ac23727e2d1451b23b6dfe680cbf24dc0364de60321fbdf2914dd00"
+    },
+    {
+      "bytes": 65,
+      "origin": "package-document-or-build-wrapper",
+      "path": "verification-source/lean/MatrixMath.lean",
+      "sha256": "0e168702d63f2e92ad24099ab2ee3ee9259924290b8b672f7b6312bdf9293b9e"
+    },
+    {
+      "bytes": 2420,
+      "origin": "literal-copy",
+      "path": "verification-source/lean/MatrixMath/Axioms.lean",
+      "sha256": "4f0b834e7d8213bf6206e689fe4d4fb426108fa57c02a61919f73a8972f84d09"
+    },
+    {
+      "bytes": 4445,
+      "origin": "literal-copy",
+      "path": "verification-source/lean/MatrixMath/Certificate/Decomposition.lean",
+      "sha256": "c6bf7616e201f96242b351e923fea2f65c69428ca586ab0b1c0db1ffd9958203"
+    },
+    {
+      "bytes": 22038,
+      "origin": "literal-copy",
+      "path": "verification-source/lean/MatrixMath/Certificate/DistCompact.lean",
+      "sha256": "f8c3ac409af751cea1bdea78f3f61ee19fcb88037eb1665cc3a64c75cd4dc3b5"
+    },
+    {
+      "bytes": 3559,
+      "origin": "literal-copy",
+      "path": "verification-source/lean/MatrixMath/Certificate/Omega.lean",
+      "sha256": "f541c32ece794651a941120b65e37489be9bb053671bedc3aa29bdd4f703b060"
+    },
+    {
+      "bytes": 60237,
+      "origin": "literal-copy",
+      "path": "verification-source/lean/MatrixMath/Certificate/OmegaCheck.lean",
+      "sha256": "170be6b759406875a9176b292507b873b5f7b8c832752764b13ff96e728cf53a"
+    },
+    {
+      "bytes": 2925,
+      "origin": "literal-copy",
+      "path": "verification-source/lean/MatrixMath/Certificate/Sound.lean",
+      "sha256": "6f8f9c361df3f39697db6ddbf6570f6a9246295abb5cd3bce3750607d9c26f14"
+    },
+    {
+      "bytes": 20158,
+      "origin": "literal-copy",
+      "path": "verification-source/lean/MatrixMath/Certificate/WFRootPositivity.lean",
+      "sha256": "a3d736d1d21b9cd6baa502244a934256e9dc4d2ff6fc6cf5f3921082638472d7"
+    },
+    {
+      "bytes": 10075,
+      "origin": "literal-copy",
+      "path": "verification-source/lean/MatrixMath/Numeric/Bounds.lean",
+      "sha256": "9145a8ed860f0478f93979977508a22dae203b6ed42ae845ed1749b8737ca4b0"
+    },
+    {
+      "bytes": 12438,
+      "origin": "literal-copy",
+      "path": "verification-source/lean/MatrixMath/Numeric/EntropyBounds.lean",
+      "sha256": "a41c6a63a179838ab757ead725e97578a03458838a63715bc5c25aea99e2fdf2"
+    },
+    {
+      "bytes": 32410,
+      "origin": "literal-copy",
+      "path": "verification-source/lean/MatrixMath/Numeric/Log2Bounds.lean",
+      "sha256": "fe402b9731f5c05497c8fe7220323c9650417f93964a1e86a9a73115c9557d82"
+    },
+    {
+      "bytes": 4101,
+      "origin": "literal-copy",
+      "path": "verification-source/lean/MatrixMath/ResultAssurance.lean",
+      "sha256": "a70f9fb179c8619edde82f82b2834f73f06032362b9389b34ed4b90f2675c574"
+    },
+    {
+      "bytes": 4830,
+      "origin": "literal-copy",
+      "path": "verification-source/lean/MatrixMath/Schema/Canonical.lean",
+      "sha256": "45759aa3474019ab510c3aa2e6b8ff7b906cdf3d45f5d91a56944666ba652b1e"
+    },
+    {
+      "bytes": 22986,
+      "origin": "literal-copy",
+      "path": "verification-source/lean/MatrixMath/Schema/Decode.lean",
+      "sha256": "2be096b97fd37dd24015407345250aed0d6bcc6d5e9fe5ce29e34a8abf80dc57"
+    },
+    {
+      "bytes": 18184,
+      "origin": "literal-copy",
+      "path": "verification-source/lean/MatrixMath/Schema/Omega.lean",
+      "sha256": "dda04b6fccc2c3f38dc6ff842acbf14f9176e8e8660f282c2b7a62e9f7d381aa"
+    },
+    {
+      "bytes": 8163,
+      "origin": "literal-copy",
+      "path": "verification-source/lean/MatrixMath/Spec/Basic.lean",
+      "sha256": "d4f995348b571ac6410460643d046e4416604678d8b314e94f6c6d5c98eaf390"
+    },
+    {
+      "bytes": 3873,
+      "origin": "literal-copy",
+      "path": "verification-source/lean/MatrixMath/Spec/Entropy.lean",
+      "sha256": "57e1d61ed2cfb7a1fff1fe041799da02ed618acf3fd793f5a51f646b16e23421"
+    },
+    {
+      "bytes": 3796,
+      "origin": "literal-copy",
+      "path": "verification-source/lean/MatrixMath/Spec/Gaussian.lean",
+      "sha256": "59dda23193761982409558b1f545d6c071310be4435b5162c2a265a4bbe2c06d"
+    },
+    {
+      "bytes": 29781,
+      "origin": "literal-copy",
+      "path": "verification-source/lean/MatrixMath/Spec/Instance.lean",
+      "sha256": "b5f0ecf4b163b0ffbb797c71d8a252d4d7483ecfa8b95081b35a7a165b3f958c"
+    },
+    {
+      "bytes": 19155,
+      "origin": "literal-copy",
+      "path": "verification-source/lean/MatrixMath/Spec/Omega.lean",
+      "sha256": "8ed243a1c887c1d19a383a623dc9f4dd0cbec1e4ab524a32a29220a1bee6cfe7"
+    },
+    {
+      "bytes": 4809,
+      "origin": "literal-copy",
+      "path": "verification-source/lean/MatrixMath/Spec/OmegaExponent.lean",
+      "sha256": "7ef067bfaf7791a135ec506b3275bf1faf728c9d26b7be75f2fd638ecde15a85"
+    },
+    {
+      "bytes": 11741,
+      "origin": "literal-copy",
+      "path": "verification-source/lean/MatrixMath/Spec/Tensor.lean",
+      "sha256": "819ae0f677f6b5b30c5dad618d5393e9c825fc75bde9dbe4f9e6f92e729dcc0c"
+    },
+    {
+      "bytes": 5072,
+      "origin": "literal-copy",
+      "path": "verification-source/lean/MatrixMath/Util/Sha256.lean",
+      "sha256": "b63c843775f14e63f20f7ae0886246cb401cdcfe0e75fc45d38c0d3732417cd0"
+    },
+    {
+      "bytes": 3145,
+      "origin": "literal-copy",
+      "path": "verification-source/lean/lake-manifest.json",
+      "sha256": "37504bab395b28e715241c4267911c9ed60eeceda92a23602848af4e3bc11bbe"
+    },
+    {
+      "bytes": 774,
+      "origin": "literal-copy",
+      "path": "verification-source/lean/lakefile.toml",
+      "sha256": "40d810a6d17c73f3a3835c047ce47ce70b432198db41ce85deeec464b3796f34"
+    },
+    {
+      "bytes": 25,
+      "origin": "literal-copy",
+      "path": "verification-source/lean/lean-toolchain",
+      "sha256": "302cd63c54178885b89e669f33b38f12f4dd7ae7e5cac537b3203e3768d8fb2b"
+    },
+    {
+      "bytes": 87,
+      "origin": "literal-copy",
+      "path": "verification-source/rust-toolchain.toml",
+      "sha256": "16fde1da0ef7e521bcba6ee6208f0f5696e6785aa103477c189447c7d7cdd78a"
+    },
+    {
+      "bytes": 478,
+      "origin": "literal-copy",
+      "path": "verification-source/schemas/certificate-v1.schema.json",
+      "sha256": "8a492e176cbd476db95367b6d8699271b8880bf7944de788bd61788ecaf7c7bb"
+    },
+    {
+      "bytes": 2082,
+      "origin": "literal-copy",
+      "path": "verify-files.py",
+      "sha256": "314e764219aa66b6a91d4435c201c24b63729bd377dac43db7a9157e8abdffed"
+    }
+  ],
+  "generated_module": {
+    "bytes": 458924665,
+    "compressed_path": "payloads/Omega_dfcede72c9dbf8ea.lean.gz",
+    "sha256": "71d36d830605c27c77ae116ba37a091241db4feb9a1ce746bf4772160cf289a2"
+  },
+  "git_files": [
+    ".gitignore",
+    "README.md",
+    "assurance.json",
+    "compiled-assurance.json",
+    "runtime-trust-summary.json",
+    "tcb.json",
+    "trust-boundary.md",
+    "verification-runbook.md",
+    "verification-source/Cargo.lock",
+    "verification-source/Cargo.toml",
+    "verification-source/crates/mm-cli/Cargo.toml",
+    "verification-source/crates/mm-cli/src/cas.rs",
+    "verification-source/crates/mm-cli/src/config.rs",
+    "verification-source/crates/mm-cli/src/lean.rs",
+    "verification-source/crates/mm-cli/src/lean_omega.rs",
+    "verification-source/crates/mm-cli/src/main.rs",
+    "verification-source/crates/mm-cli/src/prove.rs",
+    "verification-source/crates/mm-cli/src/replay.rs",
+    "verification-source/crates/mm-cli/src/report.rs",
+    "verification-source/crates/mm-cli/src/roundtrip.rs",
+    "verification-source/crates/mm-cli/src/search.rs",
+    "verification-source/crates/mm-cli/src/series_length.rs",
+    "verification-source/crates/mm-cli/src/verify.rs",
+    "verification-source/crates/mm-core/Cargo.toml",
+    "verification-source/crates/mm-core/src/codes.rs",
+    "verification-source/crates/mm-core/src/dims.rs",
+    "verification-source/crates/mm-core/src/error.rs",
+    "verification-source/crates/mm-core/src/hash.rs",
+    "verification-source/crates/mm-core/src/hex.rs",
+    "verification-source/crates/mm-core/src/level.rs",
+    "verification-source/crates/mm-core/src/lib.rs",
+    "verification-source/crates/mm-core/src/modulus.rs",
+    "verification-source/crates/mm-core/src/path.rs",
+    "verification-source/crates/mm-core/src/region.rs",
+    "verification-source/crates/mm-core/src/shape.rs",
+    "verification-source/crates/mm-exact/Cargo.toml",
+    "verification-source/crates/mm-exact/src/bridge.rs",
+    "verification-source/crates/mm-exact/src/domain.rs",
+    "verification-source/crates/mm-exact/src/evaluate.rs",
+    "verification-source/crates/mm-exact/src/instance.rs",
+    "verification-source/crates/mm-exact/src/lib.rs",
+    "verification-source/crates/mm-exact/src/maxent.rs",
+    "verification-source/crates/mm-exact/src/symmetric.rs",
+    "verification-source/crates/mm-exact/src/tree.rs",
+    "verification-source/crates/mm-rat/Cargo.toml",
+    "verification-source/crates/mm-rat/src/bounds.rs",
+    "verification-source/crates/mm-rat/src/entropy.rs",
+    "verification-source/crates/mm-rat/src/grammar.rs",
+    "verification-source/crates/mm-rat/src/lib.rs",
+    "verification-source/crates/mm-rat/src/log2.rs",
+    "verification-source/crates/mm-rat/src/rational.rs",
+    "verification-source/crates/mm-registry/Cargo.toml",
+    "verification-source/crates/mm-registry/src/cas.rs",
+    "verification-source/crates/mm-registry/src/lib.rs",
+    "verification-source/crates/mm-registry/src/tcb.rs",
+    "verification-source/crates/mm-schema/Cargo.toml",
+    "verification-source/crates/mm-schema/src/certificate.rs",
+    "verification-source/crates/mm-schema/src/lib.rs",
+    "verification-source/crates/mm-schema/src/limits.rs",
+    "verification-source/crates/mm-schema/src/omega.rs",
+    "verification-source/crates/mm-schema/src/reader.rs",
+    "verification-source/crates/mm-schema/src/symmetric.rs",
+    "verification-source/crates/mm-schema/src/writer.rs",
+    "verification-source/crates/mm-search/Cargo.toml",
+    "verification-source/crates/mm-search/src/bridge.rs",
+    "verification-source/crates/mm-search/src/f2.rs",
+    "verification-source/crates/mm-search/src/lib.rs",
+    "verification-source/crates/mm-search/src/rng.rs",
+    "verification-source/crates/mm-search/src/walk.rs",
+    "verification-source/crates/mm-search/src/witness.rs",
+    "verification-source/crates/mm-tensor/Cargo.toml",
+    "verification-source/crates/mm-tensor/src/basis.rs",
+    "verification-source/crates/mm-tensor/src/decomposition.rs",
+    "verification-source/crates/mm-tensor/src/iso.rs",
+    "verification-source/crates/mm-tensor/src/lib.rs",
+    "verification-source/crates/mm-tensor/src/moves.rs",
+    "verification-source/crates/mm-tensor/src/ring.rs",
+    "verification-source/crates/mm-tensor/src/verify.rs",
+    "verification-source/docs/adr/0002-trust-and-certification-profiles.md",
+    "verification-source/docs/adr/0011-outward-dyadic-rounding.md",
+    "verification-source/docs/adr/0013-definitional-omega.md",
+    "verification-source/docs/adr/0014-result-local-compiled-assurance.md",
+    "verification-source/docs/adr/0026-raw-certificate-literals.md",
+    "verification-source/docs/adr/0027-wf-root-positivity.md",
+    "verification-source/docs/adr/0028-stack-safe-shared-exact-arithmetic.md",
+    "verification-source/docs/source-lock.json",
+    "verification-source/docs/specs/0001_spec.md",
+    "verification-source/docs/specs/0002_spec.md",
+    "verification-source/docs/specs/0004_spec.md",
+    "verification-source/docs/specs/0007_spec.md",
+    "verification-source/docs/specs/0011_spec.md",
+    "verification-source/docs/specs/0017_spec.md",
+    "verification-source/lean/MatrixMath.lean",
+    "verification-source/lean/MatrixMath/Axioms.lean",
+    "verification-source/lean/MatrixMath/Certificate/Decomposition.lean",
+    "verification-source/lean/MatrixMath/Certificate/DistCompact.lean",
+    "verification-source/lean/MatrixMath/Certificate/Omega.lean",
+    "verification-source/lean/MatrixMath/Certificate/OmegaCheck.lean",
+    "verification-source/lean/MatrixMath/Certificate/Sound.lean",
+    "verification-source/lean/MatrixMath/Certificate/WFRootPositivity.lean",
+    "verification-source/lean/MatrixMath/Numeric/Bounds.lean",
+    "verification-source/lean/MatrixMath/Numeric/EntropyBounds.lean",
+    "verification-source/lean/MatrixMath/Numeric/Log2Bounds.lean",
+    "verification-source/lean/MatrixMath/ResultAssurance.lean",
+    "verification-source/lean/MatrixMath/Schema/Canonical.lean",
+    "verification-source/lean/MatrixMath/Schema/Decode.lean",
+    "verification-source/lean/MatrixMath/Schema/Omega.lean",
+    "verification-source/lean/MatrixMath/Spec/Basic.lean",
+    "verification-source/lean/MatrixMath/Spec/Entropy.lean",
+    "verification-source/lean/MatrixMath/Spec/Gaussian.lean",
+    "verification-source/lean/MatrixMath/Spec/Instance.lean",
+    "verification-source/lean/MatrixMath/Spec/Omega.lean",
+    "verification-source/lean/MatrixMath/Spec/OmegaExponent.lean",
+    "verification-source/lean/MatrixMath/Spec/Tensor.lean",
+    "verification-source/lean/MatrixMath/Util/Sha256.lean",
+    "verification-source/lean/lake-manifest.json",
+    "verification-source/lean/lakefile.toml",
+    "verification-source/lean/lean-toolchain",
+    "verification-source/rust-toolchain.toml",
+    "verification-source/schemas/certificate-v1.schema.json",
+    "verify-files.py",
+    "manifest.json",
+    "SHA256SUMS"
+  ],
+  "meaning": "Relative paths, sizes and SHA-256 identify this verification package. Origin distinguishes unchanged source/result files from package documents, build wrappers and the reduced-workspace lock. Manifest.json and SHA256SUMS are excluded from their own file inventory. File identity does not establish mathematical acceptance.",
+  "schema": "best015-public-file-inventory/1",
+  "separate_assets": [
+    "payloads/Omega_dfcede72c9dbf8ea.lean.gz",
+    "payloads/certificate.json"
+  ]
+}

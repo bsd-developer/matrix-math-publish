@@ -1,0 +1,13 @@
+[package]
+name = "mm-registry"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+
+[dependencies]
+mm-core = { path = "../mm-core" }
+mm-schema = { path = "../mm-schema" }
+
+[lints]
+workspace = true
