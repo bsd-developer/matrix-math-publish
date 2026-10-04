@@ -23,6 +23,39 @@ cd l4-2026-10-04-search043
 The steps below independently verify the package and its mathematical result
 under the disclosed CN/AX1 trust boundary.
 
+## Trust anchors
+
+`verify-files.py` checks files against `manifest.json`, which ships in the same
+package. The external anchors are the digests printed in the paper (§4 and
+Appendix A) and the release tag `l4-2026-10-04-search043`:
+
+- certificate: 459,013,469 bytes, SHA-256
+  `1a05ebc4e32c1a2121e6da2020c4321cc1d505ea2564b29e3d64eb12ee5ff521`;
+- generated module: 459,016,569 bytes, SHA-256
+  `7a2b439bed7c9caf3e3e59a0ee338b84c21efa51acacda2419448465d83f2786`.
+
+## Hardware and expected durations
+
+The recorded runs used an Apple M1 Max laptop with 64 GiB unified memory, on CPU
+only.
+
+| Run | Peak whole-system memory in use | Command elapsed |
+|---|---|---|
+| First full CN | about 34 GiB | 13,908 s (3.9 h) |
+| Whole-module CN replay | about 37 GiB | 14,985 s (4.2 h) |
+| Exact Rust check | about 30 GiB | 793–827 s (13–14 min) |
+
+The memory figures include roughly 20 GiB already in use by other processes when
+each run started. Most work hovered around 35 GiB, so about 48 GiB of RAM is
+expected to be a feasible upper limit. Machines with less memory are untested.
+
+Allow disk space for:
+
+- the 459 MB certificate;
+- the 459 MB generated module;
+- Lean build outputs;
+- the Mathlib cache.
+
 ## Check file identities
 
 ```sh
@@ -87,9 +120,16 @@ code. It does not evaluate the 2.37116935 certificate.
 target/release/mm verify ../payloads/certificate.json --skip-lean --json
 ```
 
-Require a successful exit, the exact certificate hash, the rational claim
-`43740354192942056903/18446744073709551616`, and
-`rust_cross_check: ok`. Rust agreement does not replace the Lean theorem.
+Require a successful exit. The recorded run printed exactly this JSON:
+
+```json
+{"canonical_sha256":"1a05ebc4e32c1a2121e6da2020c4321cc1d505ea2564b29e3d64eb12ee5ff521","certification":"XC","claim":"omega <= 43740354192942056903/18446744073709551616","kind":"omega","note":"no Lean theorem was built, so this is a development cross-check and is not reportable as certified (§3.4)","rust_cross_check":"ok","schema":"matrix-math-certificate/1","verdict":"VERIFIED"}
+```
+
+`"certification":"XC"` is expected: this step is an exact cross-check, not the
+Lean theorem. Rust agreement does not replace the Lean theorem. Rust and Lean
+implement the same specification transcription, so their agreement does not
+detect a shared transcription error (see "Audit the AX1 bridge" below).
 
 ## Run full Lean certification
 
@@ -115,3 +155,24 @@ axioms, `MatrixMath.AX1_combination_loss`, and one certificate-specific native
 axiom. See `trust-boundary.md`. The compressed theorem is available for source
 inspection and literal comparison; it is not a substitute for the full
 certificate computation.
+
+## Audit the AX1 bridge
+
+The result is only as trustworthy as the Lean transcription of the cited
+combination-loss problem (Eq. (11) of Dupont et al., arXiv:2608.16884). AX1
+asserts that feasibility of that problem implies the exponent bound. If the
+transcription were not faithful, AX1 could be false.
+
+To audit it:
+
+1. Compare `verification-source/lean/MatrixMath/Spec/Instance.lean`
+   (`CombinationLossFeasible` and the A.1–A.10 definitions) with Eq. (11) and
+   Appendix A of `verification-source/docs/specs/0001_spec.md`.
+2. Use `verification-source/docs/traceability.md`, which maps each spec
+   equation to its Lean declaration and Rust implementation.
+
+The traceability table is a literal copy of the generated project file. Its
+Python column and some Rust paths refer to the full project source, which is not
+included in this reduced package. Its Lean declarations are in
+`verification-source/lean/`.
+

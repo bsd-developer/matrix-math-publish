@@ -1,0 +1,97 @@
+% Systems-paper design follows the figure-first Pandoc/XeLaTeX language of the
+% reference Navier--Stokes map paper.
+\usepackage{amsmath}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{fancyvrb}
+\usepackage{float}
+\usepackage{microtype}
+\usepackage{iftex}
+\ifXeTeX\usepackage{fontspec}\usepackage{unicode-math}\fi
+\ifLuaTeX\usepackage{fontspec}\usepackage{unicode-math}\fi
+\makeatletter
+\@ifpackageloaded{fontspec}{%
+  \IfFontExistsTF{STIXTwoText-Regular.otf}{%
+    \setmainfont{STIXTwoText}[Extension=.otf,UprightFont=*-Regular,
+      BoldFont=*-Bold,ItalicFont=*-Italic,BoldItalicFont=*-BoldItalic]}{}%
+  \@ifpackageloaded{unicode-math}{%
+    \IfFontExistsTF{STIXTwoMath-Regular.otf}{\setmathfont{STIXTwoMath-Regular.otf}}{}% 
+  }{}%
+  \IfFontExistsTF{texgyreheros-regular.otf}{%
+    \setsansfont{texgyreheros}[Extension=.otf,UprightFont=*-regular,
+      BoldFont=*-bold,ItalicFont=*-italic,BoldItalicFont=*-bolditalic,
+      Scale=MatchLowercase]}{}%
+  \IfFontExistsTF{Menlo}{\setmonofont{Menlo}[Scale=0.78]}{}%
+}{}
+\makeatother
+\linespread{1.035}
+\frenchspacing
+
+\usepackage{newunicodechar}
+\newunicodechar{→}{\ensuremath{\rightarrow}}
+\newunicodechar{⇒}{\ensuremath{\Rightarrow}}
+\newunicodechar{↔}{\ensuremath{\leftrightarrow}}
+\newunicodechar{≤}{\ensuremath{\le}}
+\newunicodechar{≥}{\ensuremath{\ge}}
+\newunicodechar{ω}{\ensuremath{\omega}}
+\newunicodechar{ℓ}{\ensuremath{\ell}}
+
+\usepackage{xcolor}
+\usepackage{titlesec}
+\definecolor{papernum}{RGB}{60,76,102}
+\titleformat{\section}{\large\bfseries}{\textcolor{papernum}{\thesection}}{0.85em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\textcolor{papernum}{\thesubsection}}{0.75em}{}
+\titlespacing*{\section}{0pt}{*2.35}{*0.95}
+\titlespacing*{\subsection}{0pt}{*1.65}{*0.55}
+
+\usepackage[font=small,labelfont=bf,skip=5pt]{caption}
+\usepackage{enumitem}
+\setlist{itemsep=1.5pt,topsep=3pt,parsep=0pt}
+\fvset{rulecolor=\color{black!40}}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\footnotesize\itshape Proof-carrying optimization for matrix-multiplication bounds}
+\fancyhead[R]{\footnotesize\thepage}
+\renewcommand{\headrulewidth}{0.2pt}
+\fancypagestyle{plain}{\fancyhf{}\fancyfoot[C]{\footnotesize\thepage}%
+  \renewcommand{\headrulewidth}{0pt}}
+\AtBeginDocument{\hypersetup{linkcolor=papernum,citecolor=papernum,urlcolor=papernum}}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,shapes.geometric,fit,backgrounds,calc,matrix}
+\usepackage{fontawesome5}
+\usepackage[skins]{tcolorbox}
+\definecolor{gblue}{RGB}{66,133,244}
+\definecolor{gred}{RGB}{217,48,37}
+\definecolor{gamber}{RGB}{242,153,0}
+\definecolor{ggreen}{RGB}{52,168,83}
+\definecolor{gpurple}{RGB}{126,87,194}
+\definecolor{zonegreen}{RGB}{230,244,234}
+\definecolor{zoneblue}{RGB}{232,240,254}
+\definecolor{zoneamber}{RGB}{254,247,224}
+\definecolor{zonepurple}{RGB}{243,232,255}
+\definecolor{ink}{RGB}{60,64,67}
+\tikzset{
+  comp/.style={draw=#1,dashed,line width=0.9pt,rounded corners=3pt,
+    fill=white,align=center,inner xsep=7pt,inner ysep=5pt,
+    font=\sffamily\footnotesize},
+  compsolid/.style={draw=#1,line width=1pt,rounded corners=3pt,
+    fill=white,align=center,inner xsep=8pt,inner ysep=6pt,
+    font=\sffamily\footnotesize},
+  zone/.style={fill=#1,rounded corners=6pt,draw=none},
+  zlabel/.style={font=\sffamily\bfseries\small,text=ink,align=center},
+  elabel/.style={font=\sffamily\scriptsize,text=ink,align=center,fill=white,inner sep=1.5pt},
+  flow/.style={->,>=Stealth,line width=1pt,draw=#1,shorten >=2pt,shorten <=2pt},
+  flow/.default=ink,
+  trust/.style={draw=#1,line width=1.2pt,rounded corners=4pt,fill=white,
+    align=center,inner xsep=8pt,inner ysep=6pt,font=\sffamily\small}
+}
+\newtcolorbox{panelbox}[3][]{enhanced,colback=white,frame hidden,boxrule=0pt,
+  borderline={0.9pt}{0pt}{#2,dashed},arc=3pt,left=6pt,right=6pt,
+  top=2pt,bottom=3pt,title={\sffamily\bfseries\footnotesize\textcolor{#2}{#3}},
+  colbacktitle=white,coltitle=#2,titlerule=0pt,halign title=center,
+  toptitle=4pt,bottomtitle=1pt,#1}
+\newtcolorbox{zonepanel}[2][]{enhanced,colback=#2,frame hidden,boxrule=0pt,
+  arc=6pt,left=8pt,right=8pt,top=7pt,bottom=8pt,#1}

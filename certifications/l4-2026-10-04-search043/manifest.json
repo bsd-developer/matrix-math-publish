@@ -59,16 +59,16 @@
       "sha256": "9e7e6c53c5a581e53ae2127615b35c52e9eef4ed6fa501142f8d8d62bc9da239"
     },
     {
-      "bytes": 1617,
+      "bytes": 1923,
       "origin": "package-document-or-build-wrapper",
       "path": "trust-boundary.md",
-      "sha256": "951d8e4eec7dfc04351868c3a798dab93f52e62b503600007bad8a6654185bf2"
+      "sha256": "9d39599fa49ebb2971bc4abe0bf1e83696f70a4d0fbf3459f98905afff7f5585"
     },
     {
-      "bytes": 4318,
+      "bytes": 7011,
       "origin": "package-document-or-build-wrapper",
       "path": "verification-runbook.md",
-      "sha256": "934f993d20e2260105257b0532b0ef7d730465937fdd62cdf39cbf0e7e576dbb"
+      "sha256": "4ebfa784b4996b800ab2dc3085120244da519e8869abbdef487fd62fe7e275e4"
     },
     {
       "bytes": 5244,
@@ -575,6 +575,12 @@
       "sha256": "56bbc3e55ac23727e2d1451b23b6dfe680cbf24dc0364de60321fbdf2914dd00"
     },
     {
+      "bytes": 11421,
+      "origin": "literal-copy",
+      "path": "verification-source/docs/traceability.md",
+      "sha256": "e630a0e058ccddacbcd70b0a7fbb0e4a86510c9566c09ce987e50f6ab05e18a1"
+    },
+    {
       "bytes": 2420,
       "origin": "literal-copy",
       "path": "verification-source/lean/MatrixMath/Axioms.lean",
@@ -847,6 +853,7 @@
     "verification-source/docs/specs/0007_spec.md",
     "verification-source/docs/specs/0011_spec.md",
     "verification-source/docs/specs/0017_spec.md",
+    "verification-source/docs/traceability.md",
     "verification-source/lean/MatrixMath/Axioms.lean",
     "verification-source/lean/MatrixMath/Certificate/Decomposition.lean",
     "verification-source/lean/MatrixMath/Certificate/DistCompact.lean",

@@ -1,0 +1,37 @@
+{
+  "numerical_omega": 2.3711693500058737,
+  "width": 6,
+  "counts": {
+    "double_backwards": 0,
+    "endpoint_forwards": 12,
+    "first_vjps": 66,
+    "model_forwards": 25
+  },
+  "readouts": [
+    {
+      "backend": "indexed",
+      "omega": 2.3711693500058737,
+      "maximum_absolute_normalized_weighted_contrast": 2.2604140781368187e-13,
+      "largest_unweighted_branch_spread": 1.2771467039485174e-07,
+      "minimum_root_weight": 9.970399539848172e-07,
+      "maximum_root_weight": 0.43692209587314385
+    },
+    {
+      "backend": "reference",
+      "omega": 2.3711693500058737,
+      "maximum_absolute_normalized_weighted_contrast": 2.2604140781368187e-13,
+      "largest_unweighted_branch_spread": 1.2771467039485174e-07,
+      "minimum_root_weight": 9.970399539848172e-07,
+      "maximum_root_weight": 0.43692209587314385
+    },
+    {
+      "backend": "indexed",
+      "omega": 2.3711693500058737,
+      "maximum_absolute_normalized_weighted_contrast": 2.2604140781368187e-13,
+      "largest_unweighted_branch_spread": 1.2771467039485174e-07,
+      "minimum_root_weight": 9.970399539848172e-07,
+      "maximum_root_weight": 0.43692209587314385
+    }
+  ],
+  "meaning": "Floating-point observations of the selected numerical point; separate from exact certificate acceptance."
+}

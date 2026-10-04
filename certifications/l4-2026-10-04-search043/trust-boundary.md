@@ -15,7 +15,11 @@ transitive dependencies. The exponent-bound theorem depends on:
 The project proves the directed checker sound and establishes certificate
 feasibility. AX1 supplies the cited mathematical theorem connecting those
 feasibility conditions to the exponent bound; its proof is not formalized in
-this package.
+this package. AX1 is only as trustworthy as the Lean transcription of the
+cited problem; `verification-source/docs/traceability.md` and the runbook's
+"Audit the AX1 bridge" section describe how to check it. Rust and Lean implement
+the same transcription, so their agreement does not detect a shared
+transcription error.
 
 CN also trusts the relevant pinned Lean compiler, native runtime, and
 big-integer implementation. Lean kernel soundness is a metatheoretic assumption.

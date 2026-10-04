@@ -1,0 +1,42 @@
+{
+  "schema": "search043-paper-aggregate-data/1",
+  "date": "2026-10-04",
+  "scope": "Descriptive aggregates only; no private optimizer, checkpoint archives or filesystem paths.",
+  "certified_claim": {
+    "numerator": "43740354192942056903",
+    "denominator": "18446744073709551616",
+    "certificate_sha256": "1a05ebc4e32c1a2121e6da2020c4321cc1d505ea2564b29e3d64eb12ee5ff521"
+  },
+  "files": [
+    {
+      "path": "data/endpoint-summary.json",
+      "bytes": 1289,
+      "sha256": "a869ec4cdfcc71e4ab422cb68c742bb5f5a213b6d53895d15fe311ca320eab5c"
+    },
+    {
+      "path": "data/model-predictions.csv",
+      "bytes": 1597,
+      "sha256": "ae66b8eb0c65051f2df60641fb1a7a2dcec7b7f0fdedbd59bf1b0ab604da7a49"
+    },
+    {
+      "path": "data/search-progress.csv",
+      "bytes": 6983,
+      "sha256": "84a7c067d1867f8bebf1c96e329c807505008e370c28e587905ff07e65372bf5"
+    },
+    {
+      "path": "data/width-efficiency.csv",
+      "bytes": 1449,
+      "sha256": "ebd51c34455c29fc4db7e2312f14181d8458aff1a64232696b16f4c5eb872d9a"
+    },
+    {
+      "path": "figures/continuation.pdf",
+      "bytes": 13004,
+      "sha256": "bc5434386fdb3d31e1a3a6f6d552dc615a872f461385588aa543953b662d40bd"
+    },
+    {
+      "path": "figures/width-efficiency.pdf",
+      "bytes": 12801,
+      "sha256": "830d6f5a8512aae148650c962c0f218c42691b0c8d7f75534c7a177f6f2efcee"
+    }
+  ]
+}
