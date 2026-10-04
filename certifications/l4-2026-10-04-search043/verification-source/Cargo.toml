@@ -1,0 +1,44 @@
+[workspace]
+members = [
+  "crates/mm-core",
+  "crates/mm-rat",
+  "crates/mm-schema",
+  "crates/mm-exact",
+  "crates/mm-tensor",
+  "crates/mm-search",
+  "crates/mm-registry",
+  "crates/mm-cli",
+]
+resolver = "2"
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+license = "MIT OR Apache-2.0"
+rust-version = "1.94"
+
+[workspace.lints.rust]
+unsafe_code = "forbid"
+missing_docs = "deny"
+rust_2018_idioms = { level = "deny", priority = -1 }
+
+[workspace.lints.clippy]
+expect_used = "deny"
+panic = "deny"
+todo = "deny"
+unimplemented = "deny"
+unwrap_used = "deny"
+
+
+# The checker is one long single-threaded bignum computation across four crates,
+# with `Rat` a newtype over `malachite::Rational`, so almost every hot call
+# crosses a crate boundary. The default release profile leaves those boundaries
+# opaque: `lto = false` and `codegen-units = 16`.
+#
+# Nothing here can change a verdict. These are code-generation settings over
+# integer arithmetic; `mm-rat` is `no_std` and §4.3 forbids floating point on the
+# authoritative path, so there is no reassociation or contraction for the
+# optimizer to exploit. The measured bit-identical results are the check.
+[profile.release]
+lto = "fat"
+codegen-units = 1

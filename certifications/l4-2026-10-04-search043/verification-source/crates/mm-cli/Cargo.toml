@@ -1,0 +1,24 @@
+[package]
+name = "mm-cli"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+
+[[bin]]
+name = "mm"
+path = "src/main.rs"
+
+[dependencies]
+malachite = { version = "=0.10.0", default-features = false, features = ["naturals_and_integers", "rationals"] }
+mm-core = { path = "../mm-core" }
+mm-exact = { path = "../mm-exact" }
+mm-rat = { path = "../mm-rat" }
+mm-registry = { path = "../mm-registry" }
+mm-schema = { path = "../mm-schema" }
+mm-search = { path = "../mm-search" }
+mm-tensor = { path = "../mm-tensor" }
+signal-hook = { version = "=0.3.18", default-features = false, features = ["iterator"] }
+
+[lints]
+workspace = true

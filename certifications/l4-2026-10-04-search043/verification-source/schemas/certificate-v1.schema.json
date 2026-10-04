@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://matrix-math.invalid/schemas/certificate-v1.schema.json",
+  "title": "Matrix Math certificate envelope v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "payload"],
+  "properties": {
+    "schema": { "const": "matrix-math-certificate/1" },
+    "payload": {
+      "type": "object",
+      "description": "Reserved for the normative M1 certificate model."
+    }
+  }
+}
+

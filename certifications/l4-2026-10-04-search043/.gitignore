@@ -1,0 +1,5 @@
+/payloads/
+/verification-source/target/
+/verification-source/lean/.lake/
+/verification-source/lean/MatrixMath/Generated/
+/verification-source/docs/results/
