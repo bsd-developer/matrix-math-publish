@@ -28,6 +28,8 @@ Lean theorem's authority. The generator and transport tools do not replace
 checking the canonical certificate bytes.
 
 `assurance.json` and `tcb.json` are the recorded result assurance and TCB.
+A fresh run's `tcb.json` may misreport the Lean and Lake versions; see the
+runbook's known-defect note.
 `runtime-trust-summary.json` summarizes compiler/runtime/GMP and library
 versions without private filesystem bindings. The recorded original
 full-source closure is distinct from this reduced verification workspace.

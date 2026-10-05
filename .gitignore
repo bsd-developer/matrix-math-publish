@@ -15,3 +15,6 @@ target/
 /certifications/l4-2026-09-30/source-relocation-receipt.json
 /certifications/l4-2026-09-30/verify_package.py
 **/paper-revision.md
+
+# Others
+papers/notation-companion

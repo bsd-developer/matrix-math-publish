@@ -11,8 +11,9 @@ release tag identifies the source commit. Its SSH signature can be checked with
 `release-signers`; the public key is `release-signing.pub`.
 
 The release notes record the source commit, tag, asset checksums and which
-verification results were reused or newly checked. Final fresh-download and
-complete clean reader execution are deferred. The release checksum file binds
-all primary assets; the release notes record that checksum file's own digest.
+verification results were reused or newly checked. A clean-room reader run from
+freshly downloaded draft assets, including full CN certification, passed on
+2026-10-04. The release checksum file binds all primary assets; the release
+notes record that checksum file's own digest.
 
-No Zenodo DOI or completed reader execution is implied by this draft entry.
+No Zenodo DOI is implied by this draft entry.

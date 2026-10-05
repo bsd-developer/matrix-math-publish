@@ -23,6 +23,8 @@ here to check file identity; that command does not establish mathematical
 acceptance. The recorded local certification completed two full CN executions,
 independent exact Rust checks, compiled statement/axiom audits and a same-source
 local replay. The four deterministic result artifacts matched byte-for-byte.
+A clean-room run of the runbook from freshly downloaded release assets passed on
+2026-10-04, including full CN certification.
 
 The supplied CN assurance records identify the exact theorem statements and
 their axiom dependencies. They use the published combination-loss theorem as

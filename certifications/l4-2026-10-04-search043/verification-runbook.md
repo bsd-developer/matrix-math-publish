@@ -1,7 +1,8 @@
 # Verify 2.37116935
 
-Start in this certification directory with both files present in `payloads/`:
-`certificate.json` and `Omega_1a05ebc4e32c1a21.lean.gz`.
+A clean-room run of this runbook from freshly downloaded release assets passed
+on 2026-10-04: identical Rust output, full CN certification, and a regenerated
+module and compiled assurance byte-identical to the shipped ones.
 
 ## Obtain the release files
 
@@ -9,11 +10,13 @@ Download `l4-2026-10-04-search043-verification.tar.gz`, `certificate.json`, and
 `Omega_1a05ebc4e32c1a21.lean.gz` from the
 [release page](https://github.com/bsd-developer/matrix-math-publish/releases/tag/l4-2026-10-04-search043).
 The automatic GitHub source archives do not include the two payloads.
-`release-assets-SHA256SUMS.txt` provides checksums for these downloads.
+Also download `release-assets-SHA256SUMS.txt`, whose own digest is in the
+release notes.
 
-In a directory containing the three downloaded files:
+In a directory containing the four downloaded files:
 
 ```sh
+shasum -a 256 -c release-assets-SHA256SUMS.txt
 tar -xzf l4-2026-10-04-search043-verification.tar.gz
 mkdir -p l4-2026-10-04-search043/certifications/l4-2026-10-04-search043/payloads
 mv certificate.json Omega_1a05ebc4e32c1a21.lean.gz l4-2026-10-04-search043/certifications/l4-2026-10-04-search043/payloads/
@@ -25,8 +28,9 @@ The extracted archive retains the tagged repository layout: this package is in
 `papers/`. From the package directory, `bash paper/build.sh` builds the paper;
 it is not necessary for certificate acceptance.
 
-The steps below independently verify the package and its mathematical result
-under the disclosed CN/AX1 trust boundary.
+The steps below run from this package directory, with `certificate.json` and
+`Omega_1a05ebc4e32c1a21.lean.gz` in `payloads/`. They independently verify the
+package and its mathematical result under the disclosed CN/AX1 trust boundary.
 
 ## Trust anchors
 
@@ -48,18 +52,21 @@ only.
 |---|---|---|
 | First full CN | about 34 GiB | 13,908 s (3.9 h) |
 | Whole-module CN replay | about 37 GiB | 14,985 s (4.2 h) |
-| Exact Rust check | about 30 GiB | 793–827 s (13–14 min) |
+| Clean-room CN, under concurrent load | 40.0 GiB | 16,209 s (4.5 h) |
+| Exact Rust check | about 30 GiB | 793–856 s (13–14 min) |
 
-The memory figures include roughly 20 GiB already in use by other processes when
-each run started. Most work hovered around 35 GiB, so about 48 GiB of RAM is
-expected to be a feasible upper limit. Machines with less memory are untested.
+The whole-system figures include other workloads (roughly 20 GiB when each run
+started). In the clean-room run the `mm`/`lake`/`lean` process tree itself
+peaked at 15.4 GiB. A machine with 48 GiB total RAM is expected to suffice;
+machines with less memory are untested. Expect CN to take about 4–4.5 h.
 
-Allow disk space for:
+The clean-room run used about 9.1 GiB of disk in the work directory, plus the
+shared Mathlib cache in `~/.cache/mathlib`:
 
-- the 459 MB certificate;
-- the 459 MB generated module;
-- Lean build outputs;
-- the Mathlib cache.
+- Lean packages (`lean/.lake/packages`): 7.5 GiB;
+- copies of the payloads: about 1.1 GB;
+- the regenerated module: 0.46 GB;
+- the Rust `target/` directory: 112 MB.
 
 ## Check file identities
 
@@ -84,6 +91,7 @@ and Elan with Lean 4.33.0. Toolchains are selected by the supplied
 Building and proving write outputs, so use a disposable copy:
 
 ```sh
+PACKAGE="$PWD"
 READER_WORKSPACE="$(mktemp -d)"
 cp -R verification-source "$READER_WORKSPACE/verification-source"
 cp -R payloads "$READER_WORKSPACE/payloads"
@@ -117,7 +125,9 @@ cd ..
 
 The cache command prepares the pinned external dependencies. The project build
 compiles the supplied checker, general soundness proofs, and result-assurance
-code. It does not evaluate the 2.37116935 certificate.
+code. It does not evaluate the 2.37116935 certificate. It ends with 0 errors;
+8 linter warnings (unused tactics and variables) are expected.
+`lake env lean --version` must report Lean 4.33.0, commit `d8b18978`.
 
 ## Run the independent exact Rust check
 
@@ -144,16 +154,44 @@ target/release/mm prove ../payloads/certificate.json --profile cn --json
 
 This expensive command runs the Rust prerequisite, regenerates the module from
 the complete certificate, builds its proof dependencies, evaluates the full
-certificate, and audits the compiled theorem statements and axioms. It writes
-assurance under `docs/results/<certificate-sha256>/`. Require a successful
+certificate, and audits the compiled theorem statements and axioms. It prints
+nothing until it finishes, typically after several hours; this is expected.
+It writes the module to `lean/MatrixMath/Generated/Omega_1a05ebc4e32c1a21.lean`
+and assurance to `docs/results/<certificate-sha256>/`. Require a successful
 process exit and compiled audit; output files alone do not establish success.
 
-Compare the regenerated module's raw SHA-256 with `generated_module` in
-`manifest.json`. Compare the emitted compiled assurance with
-`compiled-assurance.json`: declaration kinds, elaborated statements, statement
-digests, and transitive axioms must agree. Review the new execution's TCB.
-Record its reduced source-closure digest separately from the original
-full-source digest in the supplied assurance records.
+Compare the outputs with the package:
+
+```sh
+CERT=1a05ebc4e32c1a2121e6da2020c4321cc1d505ea2564b29e3d64eb12ee5ff521
+MODULE=lean/MatrixMath/Generated/Omega_1a05ebc4e32c1a21.lean
+shasum -a 256 "$MODULE"   # 7a2b439bed7c9caf3e3e59a0ee338b84c21efa51acacda2419448465d83f2786
+wc -c < "$MODULE"         # 459016569
+gunzip -c ../payloads/Omega_1a05ebc4e32c1a21.lean.gz | cmp - "$MODULE"
+cmp "docs/results/$CERT/compiled-assurance.json" "$PACKAGE/compiled-assurance.json"
+python3 -c 'import json,sys; print(json.load(open(sys.argv[1]))["lean_source_closure"])' \
+  "docs/results/$CERT/assurance.json"
+```
+
+The module hash must equal `generated_module` in `manifest.json`, and both
+`cmp` commands must print nothing. A byte-identical compiled assurance means the
+declaration kinds, elaborated statements, statement digests and transitive
+axioms all agree. The new `assurance.json` should differ from the package's only
+in `lean_source_closure`. For this reduced workspace that digest is
+`101e0ae6b87074d8acee13c21446376a17b9657941b759752be9c1b1299b7029`, over its 22
+`.lean` files. Record it separately from the original full-source digest in the
+supplied `assurance.json`,
+`0b7add6f623b0254565d2f18bfe9d29253b16c3467153c3d3de62073ecccef66`.
+
+**Known defect in the new TCB ledger.** The new
+`docs/results/<certificate-sha256>/tcb.json` may record the machine's default
+Elan Lean and Lake versions instead of the pinned 4.33.0. The ledger runs
+`lean --version` in `verification-source/`, which has no `lean-toolchain`, while
+the proof runs in `lean/` with the pinned toolchain. Confirm the toolchain
+actually used with `lake env lean --version` in `lean/`. The proof and compiled
+assurance are unaffected. The packaged source is intentionally left unchanged,
+so that it stays the exact source the clean-room run validated; the project
+source will be corrected for later releases.
 
 The expected profile is CN: the result depends on the three standard Lean
 axioms, `MatrixMath.AX1_combination_loss`, and one certificate-specific native

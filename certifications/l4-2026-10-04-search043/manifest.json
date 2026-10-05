@@ -17,10 +17,10 @@
       "sha256": "6b0dd4b27895c3dd739818e26c83c5333b0b549a12e8476a2451ea44cb8d4478"
     },
     {
-      "bytes": 2978,
+      "bytes": 3104,
       "origin": "package-document-or-build-wrapper",
       "path": "README.md",
-      "sha256": "d3ba9d43b6c366f80d9e289ebc76c73752cebdb9eaa7af77760871881a86350a"
+      "sha256": "b529dc6d34ccd4c6a34f2f55eee229aec8554d14f00370c03d75084b35f02f19"
     },
     {
       "bytes": 3766,
@@ -59,16 +59,16 @@
       "sha256": "9e7e6c53c5a581e53ae2127615b35c52e9eef4ed6fa501142f8d8d62bc9da239"
     },
     {
-      "bytes": 1923,
+      "bytes": 2027,
       "origin": "package-document-or-build-wrapper",
       "path": "trust-boundary.md",
-      "sha256": "9d39599fa49ebb2971bc4abe0bf1e83696f70a4d0fbf3459f98905afff7f5585"
+      "sha256": "4dcbc52879d308db0683f2e4ea696d9ae9743e0809b35b64725b8f9ce7439481"
     },
     {
-      "bytes": 7416,
+      "bytes": 9772,
       "origin": "package-document-or-build-wrapper",
       "path": "verification-runbook.md",
-      "sha256": "dde078ec691a04136b25096edd5b4d6122f8da4abe7b2713d0cbe88b0017e947"
+      "sha256": "502deecc41ae5e2d0d49edb4cb8051fcc3f0d74d914aa5cf1e1de60b7acd8113"
     },
     {
       "bytes": 5244,
@@ -767,10 +767,10 @@
       "sha256": "a2f9acbcab28b853927a9591009dac3b2fc5e453b0439bd8134eeae8e2b47998"
     },
     {
-      "bytes": 112846,
+      "bytes": 130280,
       "origin": "package-document-or-build-wrapper",
       "path": "paper/build/paper.pdf",
-      "sha256": "874d5f9326050938cd778b7d1e68f6764e5357cb4fe2616c4587815dcbbb5dc2"
+      "sha256": "062d061c13f2f069cd8ae20a885d13a32d6bb15cbe643e2ee406808d1ee95e91"
     },
     {
       "bytes": 1289,
@@ -815,10 +815,10 @@
       "sha256": "830d6f5a8512aae148650c962c0f218c42691b0c8d7f75534c7a177f6f2efcee"
     },
     {
-      "bytes": 30105,
+      "bytes": 40762,
       "origin": "package-document-or-build-wrapper",
       "path": "paper/paper.md",
-      "sha256": "cd87c9c2c770054737c88b40a2c54aa32ede7639773063d8feb648604910f51d"
+      "sha256": "cbf80af56b58a6c45902d0086f65901ea519fe4d00180e4ce88e523889371d45"
     }
   ],
   "generated_module": {
